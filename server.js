@@ -21,7 +21,7 @@ app.use(express.static('./public'));
 
 
 //switch from momgo js to moongoose
-mongoose.connect('mongodb://localhost/');
+mongoose.connect('mongodb://localhost/nytreact');
 var db = mongoose.connection;
 
 db.on('error', function (err) {
