@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-var Article = require('./server/model.js');
+var Article = require('./server/user.js');
 
 
 var app = express();
