@@ -1,37 +1,382 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Times Helper</title>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DailyGrub</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <nav class="wow fadeInDown">
+        <div class="row">
+          <div class="large-3 medium-12 small-12 columns">
+            <img src='assets/img/dailygrub.png' href="index.html" class="img-responsive logo"></a>
+          </div>
+          <div class="large-9 medium-12 small-12 columns">
+            <span id="showmobilemenu" class="hide-for-large-up">Menu</span>
+            <ul id="mainnav">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="views/about.html">Profile</a></li>
+              <li><a href="views/recipes.html">My Recipes</a></li>
+              <li><a href="views/blog.html">About Us</a></li>          
+              <li><a href="views/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section id="header-content">
+<img src='assets/img/dailygrub.png' href="index.html" class="wow fadeInDown img-responsive logo"></a>
 
-	<!-- Bootstrap CDN -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <h6 class="big fontsans">my best recipes for healthy and light dishes</h6>
+        <form id="findrecipe">
+          <div class="row collapse">
+            <div class="large-10 medium-10 small-8 columns"><input type="text" placeholder="find a recipe"></div>
+            <div class="large-2 medium-2 small-4 columns"><input type="submit" value=""></div>
+          </div>
+        </form>
+      </section>
+    </header> 
+    <!-- END header -->
 
-	<!-- Bootswatch -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+    <section class="content-padding recipes">
+      <div class="row">
+        <div class="large-12 medium-12 small-12 columns text-center">
+          <div class="head align-center">
+            <h2 class="margin0">New recipes</h2>
+            <h6 class="fontsans big"><strong>Recent recipes on the blog</strong></h6>
+          </div>
+        </div>
+      </div>
+      <!-- recipe list -->
+      <div class="wow bounceInUp" data-wow-offset="250">
+        <div class="row" data-equalizer>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Dessert</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food1.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Momofuku Ooey Gooey Butter Cake Bars With Blueberries</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Main dish</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food2.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Turkey Grilled Cheese Sandwich With Pickled Onions</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Dessert</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food3.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Toasted Oatmeal With Strawberry Chia Jam And Coconut Whipped Cream</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Main dish</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food4.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Honey Lemon Grilled Chicken Recipe</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Dessert</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food5.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Toasted Oatmeal With Strawberry Chia Jam And Coconut Whipped Cream</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Dessert</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food6.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Momofuku Ooey Gooey Butter Cake Bars With Blueberries</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Main dish</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food7.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Turkey Grilled Cheese Sandwich With Pickled Onions</a></h6>
+            </div>
+          </div>
+          <div class="large-3 medium-6 small-12 columns" data-equalizer-watch>
+            <div class="recipe text-center">
+              <div class="recipe-cover">
+                <a href="" class="like"><i class="fa fa-heart-o"></i> 2054</a>
+                <a href="recipe.html" class="type">Main dish</a>
+                <a class="recipe-link" href="recipe.html"></a>
+                <img src="assets/img/food8.jpg" alt="">
+              </div>
+              <h6 class="fontsans margin0"><a href="recipe.html">Honey Lemon Grilled Chicken Recipe</a></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END recipe list -->
+    </section>
 
-	<!-- Font-Awesome -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <section class="fullwidth">
+      <div class="row collapse" data-equalizer>
+        <div class="large-6 medium-6 small-12 columns">
+          <div class="myphoto wow bounceInLeft" style="background:url(assets/img/myphoto.jpg) no-repeat center center;" data-wow-offset="350" data-equalizer-watch>
+            <a href=""></a>
+          </div>
+        </div>
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <div class="large-6 medium-6 small-12 columns">
+          <div class="aboutme" data-equalizer-watch>
+            <div class="head align-left">
+              <h2 class="margin0">Rick Handerson</h2>
+              <h6 class="fontsans big"><strong>I am a chef since 1990</strong></h6>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a href="views/about.html" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</head>
+    <section class="content-padding">
+      <div class="row">
+        <div class="large-12 medium-12 small-12 columns text-center">
+          <div class="head align-center">
+            <h2 class="margin0">Blog</h2>
+            <h6 class="fontsans big"><strong>recent posts</strong></h6>
+          </div>
+        </div>
+      </div>
 
-<body>
-<style type="text/css">
-	.foo{
-	font-weight: bold;
-	font-family: "Arial Black";
-		}
-</style>
+      <div class="wow bounceInUp">
+        <div class="row blog-entries">
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog1.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Giant Vanilla Bean Sugar Cookies</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->
 
-	<!-- This is where React will deploy the contents it generates -->
-	<div id="app"></div>
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog2.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Cranberry Sauce With Apples And Raspberries</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
 
-	<!-- All of our JS code will be transpiled into this bundle.js file -->
-	<script src="bundle.js"></script>
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog3.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Gramercy Tavern’s Gingerbread</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->   
 
-</body>
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog4.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Brussels Sprouts With Balsamic And Cranberries</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog5.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Stout Cupcakes With Chocolate Covered Pretzels</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog6.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Beer And Brown Sugar Ribeye Steak Recipe</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog1.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Giant Vanilla Bean Sugar Cookies</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog2.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Cranberry Sauce With Apples And Raspberries</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog3.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Gramercy Tavern’s Gingerbread</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog4.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Brussels Sprouts With Balsamic And Cranberries</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->  
+
+          <!-- wpis -->
+          <div class="item large-4 medium-6 small-12 columns">
+            <div class="cover"><a href="" class="like-it"><i class="fa fa-heart-o"></i></a><a class="entry-link" href="views/blog.html"></a><img src="assets/img/blog5.jpg"></div>
+            <div class="entry-name">
+              <p class="data">11-12-2014</p>
+              <h4 class="fontsans entry-title"><a href="views/blog.html">Stout Cupcakes With Chocolate Covered Pretzels</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href="entry.html" class="blue read">read more...</a></p>
+            </div>
+          </div>
+          <!-- END wpis -->
+        </div>
+      </div>
+
+      <div class="row collapse">
+        <div class="large-12 mecoim-12 small-12 columns text-center">
+          <div class="all"><a href="views/blog.html" class="button dark">See all blog entries</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div id="footer-top">
+        <div class="row">
+          <div class="large-4 medium-4 small-12 columns">
+            <h4>Twitter</h4>
+            <p><a href="">@GoodFood</a> Nunc convallis sagittis metus, at vehicula orci lacinia a. Maecenas quis mollis dolor, vitae euismod arcu. Praesent nec.</p>
+            <p><a href="">@GoodFood</a> Nunc convallis sagittis metus, at vehicula orci lacinia a. Maecenas quis mollis dolor, vitae euismod arcu. Praesent nec.</p>
+            <p><a href="">@GoodFood</a> Nunc convallis sagittis metus, at vehicula orci lacinia a. Maecenas quis mollis dolor, vitae euismod arcu. Praesent nec.</p>
+          </div>
+          <div class="large-4 medium-4 small-12 columns">
+            <h4>Recent Comments</h4>
+            <p><strong>Morgan Freeman</strong> on <a href="">Where Are These Small Birds Who Like to Sing – Self-Hosted Video Post Type</a></p>
+            <p><strong>Nikole Kidman</strong> on <a href="">Just a Little Depressed and What I am Doing About It – Gallery Post Type</a></p>
+            <p><strong>Robert Downey Jr.</strong> on <a href="">Isn’t Just a Sequence of Waiting For Things To Be Done! – Slideshow Post Type</a></p>
+            <p><strong>Morgan Freeman</strong> on <a href="">Where Are These Small Birds Who Like to Sing – Self-Hosted Video Post Type</a></p>
+          </div>
+          <div class="large-4 medium-4 small-12 columns">
+            <h4>Lorem ipsum dolor</h4>
+            <p>There are so many unexpected things I’ve gotten from blogging. Big and small things. A cookbook. A reason to use designer muffin cups. A community. A career. New friends. Offers to try a new line of microalgae.</p>
+            <p>But my favourite things however, are those that involve super passionate people wanting to share their awesome</p>
+            <p><a href="">Read more...</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer-bottom">
+        <div class="row">
+          <div class="large-3 medium-12 small-12 columns">
+            <img src='assets/img/dailygrub.png' href="index.html" class="img-responsive logo"></a>
+          </div>
+          <div class="large-9 medium-12 small-12 columns">
+            <ul>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="views/about.html">Profile</a></li>
+              <li><a href="views/recipes.html">My Recipes</a></li>
+              <li><a href="views/blog.html">About Us</a></li>          
+              <li><a href="views/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+        <div id="app"></div>
+
+  <!-- All of our JS code will be transpiled into this bundle.js file -->
+  <script src="bundle.js"></script>
+    </footer>
+  
+  <script src="assets/js/vendor/jquery.js"></script>
+  <script src="assets/js/foundation.min.js"></script>
+  <script src="assets/js/app.js"></script> 
+  <script src="assets/js/wow.min.js"></script>
+    <script>
+      jQuery(document).foundation({
+        equalizer: {
+            equalize_on_stack: true
+        }
+      });
+      wow = new WOW(
+        {
+          mobile: false
+        }
+      )
+      wow.init();
+    </script>
+  <script src="assets/js/packery.js"></script> 
+  <script src="assets/js/imagesloaded.pkgd.min.js"></script> 
+  <script src="assets/js/jquery.flexslider-min.js"></script> 
+
+  </body>
 </html>
