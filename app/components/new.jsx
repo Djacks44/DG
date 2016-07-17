@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import ShowRecipe from './recipies.jsx'
 
 
 class SearchRecipe extends React.Component {
@@ -24,11 +25,21 @@ class SearchRecipe extends React.Component {
   render(){
     return(
     <div>
+    <div>
       <form className="new-resolution" onSubmit={this.handleClick.bind(this)}>
         <input type="text" ref="lol" placeholder="What do you want to Eat?" />
         <button onClick={this.handleClick.bind(this)}>Submit</button>
      </form>
     </div>
+
+      <div>
+        <ShowRecipe recipe={this.state.search}/>
+      </div>
+
+</div>
+
+
+
   );
   }
 }
