@@ -99,10 +99,10 @@
 	var SearchRecipe = function (_React$Component) {
 	  _inherits(SearchRecipe, _React$Component);
 
-	  function SearchRecipe() {
+	  function SearchRecipe(props) {
 	    _classCallCheck(this, SearchRecipe);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchRecipe).call(this));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchRecipe).call(this, props));
 
 	    _this.state = {
 	      search: [],
@@ -114,11 +114,13 @@
 	  _createClass(SearchRecipe, [{
 	    key: 'handleClick',
 	    value: function handleClick(event) {
+	      var _this2 = this;
+
 	      event.preventDefault();
-	      var x = this;
-	      console.log(x);
-	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=chicken&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
-	        console.log(response);
+	      var x = this.refs.lol.value.trim();
+
+	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + x + "&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	        return _this2.setState({ search: response.data.Results });
 	      });
 	    }
 	  }, {
@@ -133,7 +135,7 @@
 	          _react2.default.createElement('input', { type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: this.handleClick },
+	            { onClick: this.handleClick.bind(this) },
 	            'Submit'
 	          )
 	        )

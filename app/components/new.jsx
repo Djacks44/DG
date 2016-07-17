@@ -3,28 +3,30 @@ import axios from 'axios'
 
 
 class SearchRecipe extends React.Component {
-    constructor() {
-    super();
+    constructor(props) {
+    super(props);
+
     this.state = {
       search:[],
-      sTerm:""
     };
   }
 
   handleClick(event){
-  event.preventDefault();
-   var x = this;
-   console.log(x);
-   axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=chicken&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-   .then(function(response){console.log(response)});
+    event.preventDefault();
+   var x = this.refs.lol.value.trim();
+
+   axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="+x+"&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+     .then(response => this.setState({ search: response.data.Results}));
   }
+
+
 
   render(){
     return(
     <div>
-      <form className="new-resolution" onSubmit = {this.handleClick.bind(this)}>
+      <form className="new-resolution" onSubmit={this.handleClick.bind(this)}>
         <input type="text" ref="lol" placeholder="What do you want to Eat?" />
-        <button onClick={this.handleClick}>Submit</button>
+        <button onClick={this.handleClick.bind(this)}>Submit</button>
      </form>
     </div>
   );
