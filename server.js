@@ -2,9 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
-var Article = require('./server/user.js');
-
+var Article = require('./models/user.js');
+var logic = require('./server/logic/logic')
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -17,6 +16,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
+app.use('/search',logic);
+
 
 
 
@@ -86,6 +87,7 @@ app.delete('/api/saved/', function(req, res){
 		}
 	});
 });
+
 
 
 
