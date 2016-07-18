@@ -5327,51 +5327,117 @@
 	  function ShowRecipe(props) {
 	    _classCallCheck(this, ShowRecipe);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ShowRecipe).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ShowRecipe).call(this, props));
+
+	    console.log(_this.props);
+
+	    return _this;
 	  }
 
 	  _createClass(ShowRecipe, [{
-	    key: 'handleClick',
-	    value: function handleClick(event) {
+	    key: 'handleClick2',
+	    value: function handleClick2(obj, event) {
 	      event.preventDefault();
+	      // console.log(this)
+	      console.log(obj);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'large-3 medium-6 small-12 columns', 'data-equalizer-watch': true },
-	        _react2.default.createElement(
+
+	      if (this.props.recipe == '') {
+	        console.log('nothing');
+	        return _react2.default.createElement(
 	          'div',
-	          { className: 'recipe text-center' },
+	          { className: 'large-3 medium-6 small-12 columns', 'data-equalizer-watch': true },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'recipe-cover' },
+	            { className: 'recipe text-center' },
 	            _react2.default.createElement(
-	              'a',
-	              { href: '', className: 'like' },
-	              _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
-	              ' 2054'
+	              'div',
+	              { className: 'recipe-cover' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '', className: 'like' },
+	                _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
+	                ' 2054'
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'recipe.html', className: 'type' },
+	                'yes'
+	              ),
+	              _react2.default.createElement('a', { className: 'recipe-link', href: 'recipe.html' }),
+	              _react2.default.createElement('img', { src: 'https://photos.bigoven.com/avatar/photo/riceselect=45c7a1.jpg', alt: '' })
 	            ),
 	            _react2.default.createElement(
-	              'a',
-	              { href: 'recipe.html', className: 'type' },
-	              'Soups, Stews and Chili'
-	            ),
-	            _react2.default.createElement('a', { className: 'recipe-link', href: 'recipe.html' }),
-	            _react2.default.createElement('img', { src: 'https://photos.bigoven.com/avatar/photo/riceselect=45c7a1.jpg', alt: '' })
-	          ),
-	          _react2.default.createElement(
-	            'h6',
-	            { className: 'fontsans margin0' },
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'recipe.html' },
-	              'Lemon Chicken & Orzo Soup'
+	              'h6',
+	              { className: 'fontsans margin0' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'recipe.html' },
+	                'Lemon Chicken & Orzo Soup'
+	              )
 	            )
 	          )
-	        )
-	      );
+	        );
+	      } else {
+	        console.log(this.props.recipe == '');
+	        var recipe = this.props.recipe;
+
+	        var recipes = this.props.recipe.map(function (recipe, index) {
+
+	          return _react2.default.createElement(
+	            'div',
+	            { key: index },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-3 medium-6 small-12 columns', 'data-equalizer-watch': true },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'recipe text-center' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'recipe-cover' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '', className: 'like' },
+	                    _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
+	                    ' 2054'
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'recipe.html', className: 'type' },
+	                    recipe.Category
+	                  ),
+	                  _react2.default.createElement('a', { className: 'recipe-link', href: 'recipe.html' }),
+	                  _react2.default.createElement('img', { src: recipe.PhotoUrl, alt: '' })
+	                ),
+	                _react2.default.createElement(
+	                  'h6',
+	                  { className: 'fontsans margin0' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'recipe.html' },
+	                    recipe.Title
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'button',
+	                  { onClick: this.handleClick2.bind(this, recipe) },
+	                  'Save'
+	                )
+	              )
+	            )
+	          );
+	        }.bind(this));
+
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          recipes
+	        );
+	      }
 	    }
 	  }]);
 
