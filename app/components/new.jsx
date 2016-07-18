@@ -16,7 +16,7 @@ class SearchRecipe extends React.Component {
     event.preventDefault();
    var x = this.refs.lol.value.trim();
 
-   axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="+x+"&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+   axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=24&title_kw="+x+"&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
      .then(response => this.setState({ search: response.data.Results}));
   }
 
@@ -24,13 +24,39 @@ class SearchRecipe extends React.Component {
 
   render(){
     return(
-    <div>
-    <div>
-      <form className="new-resolution" onSubmit={this.handleClick.bind(this)}>
-        <input type="text" ref="lol" placeholder="What do you want to Eat?" />
-        <button onClick={this.handleClick.bind(this)}>Submit</button>
+       <div>
+          <header id="header">
+      <nav className="wow fadeInDown">
+        <div className="row">
+          <div className="large-3 medium-12 small-12 columns">
+            <img src='assets/img/dailygrub.png' className="img-responsive logo"/>
+          </div>
+          <div className="large-9 medium-12 small-12 columns">
+            <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
+            <ul id="mainnav">
+              <li><a href="/" className="active">Home</a></li>
+              <li><a href="/Profile">Profile</a></li>
+              <li><a href="/MyRecipes">My Recipes</a></li>
+              <li><a href="views/blog.html">About Us</a></li>
+              <li><a href="/auth/google">Sign In with Google</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section id="header-content">
+<img src='assets/img/dailygrub.png'  className="wow fadeInDown img-responsive logo"/>
+      <div>
+      <form onSubmit={this.handleClick.bind(this)}>
+        <input id="bti" type="text" ref="lol" placeholder="What do you want to Eat?" />
+        <button id="bt" onClick={this.handleClick.bind(this)}>Submit</button>
      </form>
     </div>
+        <br />
+        <h6 className="big fontsans">The best recipes for tasty dishes</h6>
+
+      </section>
+    </header>
+
 
       <div>
         <ShowRecipe recipe={this.state.search}/>

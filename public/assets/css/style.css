@@ -111,7 +111,7 @@ button {
 
 .button:hover,
 button:hover {
-	background: #ca0642;
+	background: #ca0642 !important;
 	color: #ffffff;
  	border: 2px solid #ca0642;
 }

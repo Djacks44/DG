@@ -15,6 +15,6 @@ import ShowRecipe from './components/recipies.jsx'
 ReactDOM.render(
 
 	<div><SearchRecipe /></div>,
-	document.getElementById('yellow')
+	document.getElementById('app')
 	)
 

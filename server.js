@@ -39,6 +39,14 @@ app.get('/', function(req, res){
 	res.sendFile('./public/index.html');
 })
 
+app.get('/Profile', function(req, res){
+	res.sendFile(process.cwd()+'/public/views/recipes.html');
+})
+
+app.get('/MyRecipes', function(req, res){
+	res.sendFile(process.cwd()+'/public/views/recipes.html');
+})
+
 
 app.get('/api/saved', function(req, res) {
 

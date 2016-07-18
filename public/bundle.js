@@ -70,7 +70,7 @@
 		'div',
 		null,
 		React.createElement(_new2.default, null)
-	), document.getElementById('yellow'));
+	), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -126,7 +126,7 @@
 	      event.preventDefault();
 	      var x = this.refs.lol.value.trim();
 
-	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + x + "&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=24&title_kw=" + x + "&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
 	        return _this2.setState({ search: response.data.Results });
 	      });
 	    }
@@ -137,16 +137,102 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'div',
-	          null,
+	          'header',
+	          { id: 'header' },
 	          _react2.default.createElement(
-	            'form',
-	            { className: 'new-resolution', onSubmit: this.handleClick.bind(this) },
-	            _react2.default.createElement('input', { type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	            'nav',
+	            { className: 'wow fadeInDown' },
 	            _react2.default.createElement(
-	              'button',
-	              { onClick: this.handleClick.bind(this) },
-	              'Submit'
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'large-3 medium-12 small-12 columns' },
+	                _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'large-9 medium-12 small-12 columns' },
+	                _react2.default.createElement(
+	                  'span',
+	                  { id: 'showmobilemenu', className: 'hide-for-large-up' },
+	                  'Menu'
+	                ),
+	                _react2.default.createElement(
+	                  'ul',
+	                  { id: 'mainnav' },
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: '/', className: 'active' },
+	                      'Home'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: '/Profile' },
+	                      'Profile'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: '/MyRecipes' },
+	                      'My Recipes'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'views/blog.html' },
+	                      'About Us'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: '/auth/google' },
+	                      'Sign In with Google'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'section',
+	            { id: 'header-content' },
+	            _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'form',
+	                { onSubmit: this.handleClick.bind(this) },
+	                _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	                _react2.default.createElement(
+	                  'button',
+	                  { id: 'bt', onClick: this.handleClick.bind(this) },
+	                  'Submit'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'h6',
+	              { className: 'big fontsans' },
+	              'The best recipes for tasty dishes'
 	            )
 	          )
 	        ),
@@ -5349,34 +5435,47 @@
 	        console.log('nothing');
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'large-3 medium-6 small-12 columns', 'data-equalizer-watch': true },
+	          null,
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'recipe text-center' },
+	            'section',
+	            { className: 'content-padding recipes' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'recipe-cover' },
+	              { className: 'row' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '', className: 'like' },
-	                _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
-	                ' 2054'
-	              ),
-	              _react2.default.createElement(
-	                'a',
-	                { href: 'recipe.html', className: 'type' },
-	                'yes'
-	              ),
-	              _react2.default.createElement('a', { className: 'recipe-link', href: 'recipe.html' }),
-	              _react2.default.createElement('img', { src: 'https://photos.bigoven.com/avatar/photo/riceselect=45c7a1.jpg', alt: '' })
+	                'div',
+	                { className: 'large-12 medium-12 small-12 columns text-center' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'head align-center' },
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'margin0' },
+	                    'Great Recipes'
+	                  ),
+	                  _react2.default.createElement(
+	                    'h6',
+	                    { className: 'fontsans big' },
+	                    _react2.default.createElement(
+	                      'strong',
+	                      null,
+	                      'Find A Meal You Can Enjoy!'
+	                    )
+	                  )
+	                )
+	              )
 	            ),
 	            _react2.default.createElement(
-	              'h6',
-	              { className: 'fontsans margin0' },
+	              'div',
+	              { className: 'wow bounceInUp', 'data-wow-offset': '250' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: 'recipe.html' },
-	                'Lemon Chicken & Orzo Soup'
+	                'center',
+	                null,
+	                _react2.default.createElement(
+	                  'h2',
+	                  null,
+	                  'Go ahead Search!.....'
+	                )
 	              )
 	            )
 	          )
@@ -5401,9 +5500,9 @@
 	                  { className: 'recipe-cover' },
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: '', className: 'like' },
+	                    { onClick: this.handleClick2.bind(this, recipe), className: 'like' },
 	                    _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
-	                    ' 2054'
+	                    ' save'
 	                  ),
 	                  _react2.default.createElement(
 	                    'a',
@@ -5421,11 +5520,6 @@
 	                    { href: 'recipe.html' },
 	                    recipe.Title
 	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'button',
-	                  { onClick: this.handleClick2.bind(this, recipe) },
-	                  'Save'
 	                )
 	              )
 	            )
@@ -5435,7 +5529,45 @@
 	        return _react2.default.createElement(
 	          'div',
 	          null,
-	          recipes
+	          _react2.default.createElement(
+	            'section',
+	            { className: 'content-padding recipes' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'large-12 medium-12 small-12 columns text-center' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'head align-center' },
+	                  _react2.default.createElement(
+	                    'h2',
+	                    { className: 'margin0' },
+	                    'Great Recipes'
+	                  ),
+	                  _react2.default.createElement(
+	                    'h6',
+	                    { className: 'fontsans big' },
+	                    _react2.default.createElement(
+	                      'strong',
+	                      null,
+	                      'Find A Meal You Can Enjoy!'
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'wow bounceInUp', 'data-wow-offset': '250' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row', 'data-equalizer': true },
+	                recipes
+	              )
+	            )
+	          )
 	        );
 	      }
 	    }

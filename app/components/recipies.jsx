@@ -27,17 +27,22 @@ class ShowRecipe extends React.Component {
     if (this.props.recipe == '') {
       console.log('nothing')
          return(
-     <div className="large-3 medium-6 small-12 columns" data-equalizer-watch>
-            <div className="recipe text-center">
-              <div className="recipe-cover">
-                <a href="" className="like"><i className="fa fa-heart-o"></i> 2054</a>
-                <a href="recipe.html" className="type">yes</a>
-                <a className="recipe-link" href="recipe.html"></a>
-                 <img src='https://photos.bigoven.com/avatar/photo/riceselect=45c7a1.jpg' alt="" />
-              </div>
-              <h6 className="fontsans margin0"><a href="recipe.html">Lemon Chicken & Orzo Soup</a></h6>
+          <div>
+        <section className="content-padding recipes">
+        <div className="row">
+          <div className="large-12 medium-12 small-12 columns text-center">
+            <div className="head align-center">
+              <h2 className="margin0">Great Recipes</h2>
+              <h6 className="fontsans big"><strong>Find A Meal You Can Enjoy!</strong></h6>
             </div>
           </div>
+        </div>
+        
+        <div className="wow bounceInUp" data-wow-offset="250">          
+            <center><h2>Go ahead Search!.....</h2></center>
+        </div>
+      </section>
+    </div>
   );
 
     }else{
@@ -51,13 +56,12 @@ class ShowRecipe extends React.Component {
      <div className="large-3 medium-6 small-12 columns" data-equalizer-watch>
             <div className="recipe text-center">
               <div className="recipe-cover">
-                <a href="" className="like"><i className="fa fa-heart-o"></i> 2054</a>
+                <a onClick={this.handleClick2.bind(this, recipe)} className="like"><i className="fa fa-heart-o"></i> save</a>
                 <a href="recipe.html" className="type">{recipe.Category}</a>
                 <a className="recipe-link" href="recipe.html"></a>
                  <img src={recipe.PhotoUrl} alt="" />
               </div>
               <h6 className="fontsans margin0"><a href="recipe.html">{recipe.Title}</a></h6>
-              <button onClick={this.handleClick2.bind(this, recipe)}>Save</button>
             </div>
           </div>
           </div>
@@ -65,7 +69,27 @@ class ShowRecipe extends React.Component {
   );
     }.bind(this))
 
-       return(<div>{recipes}</div>);
+       return(
+      <div>
+        <section className="content-padding recipes">
+        <div className="row">
+          <div className="large-12 medium-12 small-12 columns text-center">
+            <div className="head align-center">
+              <h2 className="margin0">Great Recipes</h2>
+              <h6 className="fontsans big"><strong>Find A Meal You Can Enjoy!</strong></h6>
+            </div>
+          </div>
+        </div>
+        
+        <div className="wow bounceInUp" data-wow-offset="250">
+          <div className="row" data-equalizer>          
+            {recipes}
+          </div>
+        </div>
+      </section>
+    </div>
+
+        );
 
 
   }
