@@ -10,11 +10,9 @@ var routes = require('./config/routes');
 
 
 import SearchRecipe from './components/new.jsx'
-import ShowRecipe from './components/recipies.jsx'
 
 ReactDOM.render(
 
 	<div><SearchRecipe /></div>,
 	document.getElementById('app')
 	)
-
