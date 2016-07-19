@@ -17,6 +17,7 @@ class ShowRecipe extends React.Component {
   handleClick2(obj, event){
     event.preventDefault();
     // console.log(this)
+    //save to db here
     console.log(obj)
     
   
@@ -30,14 +31,13 @@ class ShowRecipe extends React.Component {
   }
 
   open(obj, event) {
-    console.log(obj)
     this.setState({ obj: obj });
-    cosole.log(this.state.showModal)
-    cosole.log(this.state.hey)
+     console.log(this.state.obj)
     this.setState({ showModal: true });
   }
   save(event) {
     console.log(this.state.obj)
+    //save to db here
     
  
   }
@@ -147,7 +147,7 @@ class ShowRecipe extends React.Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={this.Save.bind(this)}>Save</Button>
+            <Button onClick={this.save.bind(this)}>Save</Button>
             <Button onClick={this.close.bind(this)}>Close</Button>
           </Modal.Footer>
         </Modal>
