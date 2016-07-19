@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import ShowRecipe from './recipies.jsx'
+import Example from './RecipeinformationModal.jsx'
 
 
 class SearchRecipe extends React.Component {
