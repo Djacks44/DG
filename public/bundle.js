@@ -122,7 +122,7 @@
 	      event.preventDefault();
 	      var x = this.refs.lol.value.trim();
 
-	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=24&any_kw=" + x + "&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=8&any_kw=" + x + "&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
 	        return _this2.setState({ search: response.data.Results });
 	      });
 	    }
