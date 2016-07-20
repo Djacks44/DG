@@ -5438,6 +5438,7 @@
 	    value: function handleClick2(obj, event) {
 	      event.preventDefault();
 	      // console.log(this)
+	      //save to db here
 	      console.log(obj);
 	    }
 	  }, {
@@ -5448,16 +5449,14 @@
 	  }, {
 	    key: 'open',
 	    value: function open(obj, event) {
-	      console.log(obj);
-	      this.setState({ obj: obj });
-	      cosole.log(this.state.showModal);
-	      cosole.log(this.state.hey);
+	      window.obj = obj;
 	      this.setState({ showModal: true });
 	    }
 	  }, {
 	    key: 'save',
 	    value: function save(event) {
-	      console.log(this.state.obj);
+	      console.log(window.obj);
+	      //save to db here
 	    }
 	  }, {
 	    key: 'render',
@@ -5673,7 +5672,7 @@
 	                        null,
 	                        _react2.default.createElement(
 	                          _Button2.default,
-	                          { onClick: this.Save.bind(this) },
+	                          { onClick: this.save.bind(this) },
 	                          'Save'
 	                        ),
 	                        _react2.default.createElement(

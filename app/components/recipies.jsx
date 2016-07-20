@@ -31,12 +31,11 @@ class ShowRecipe extends React.Component {
   }
 
   open(obj, event) {
-    this.setState({ obj: obj });
-     console.log(this.state.obj)
+      window.obj = obj
     this.setState({ showModal: true });
   }
   save(event) {
-    console.log(this.state.obj)
+    console.log(window.obj)
     //save to db here
     
  
