@@ -10,7 +10,9 @@ const Example = React.createClass({
       showModal: false,
       selectedRecipe: { data: {
         Description: "",
-        Instructions: ""
+        Instructions: "",
+        StarRating: "",
+        Title: "",
       }
         }
       };
@@ -60,11 +62,16 @@ const Example = React.createClass({
         <Modal show={this.state.showModal} onHide={this.close}>
 
           <Modal.Header closeButton>
-            <Modal.Title>{this.props.recipe.Title}</Modal.Title>
+            <Modal.Title>{this.state.selectedRecipe.data.Title}</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
-            <h4>{this.state.selectedRecipe.data.Description}</h4>
+            <h4>Rating: {Math.round(this.state.selectedRecipe.data.StarRating)}</h4>
+            <br />
+            <strong>Description</strong>
+            <p>{this.state.selectedRecipe.data.Description}</p>
+            <br />
+            <strong>Instructions</strong>
             <p>{ this.state.selectedRecipe.data.Instructions}</p>
           </Modal.Body>
 

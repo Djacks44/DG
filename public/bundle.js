@@ -28042,7 +28042,9 @@
 	      showModal: false,
 	      selectedRecipe: { data: {
 	          Description: "",
-	          Instructions: ""
+	          Instructions: "",
+	          StarRating: "",
+	          Title: ""
 	        }
 	      }
 	    };
@@ -28088,7 +28090,7 @@
 	          _react2.default.createElement(
 	            _Modal2.default.Title,
 	            null,
-	            this.props.recipe.Title
+	            this.state.selectedRecipe.data.Title
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -28097,7 +28099,25 @@
 	          _react2.default.createElement(
 	            'h4',
 	            null,
+	            'Rating: ',
+	            Math.round(this.state.selectedRecipe.data.StarRating)
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Description'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
 	            this.state.selectedRecipe.data.Description
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Instructions'
 	          ),
 	          _react2.default.createElement(
 	            'p',
