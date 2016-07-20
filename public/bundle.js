@@ -28038,7 +28038,14 @@
 	var Example = _react2.default.createClass({
 	  displayName: 'Example',
 	  getInitialState: function getInitialState() {
-	    return { showModal: false };
+	    return {
+	      showModal: false,
+	      selectedRecipe: { data: {
+	          Description: "",
+	          Instructions: ""
+	        }
+	      }
+	    };
 	  },
 	  close: function close() {
 	    this.setState({ showModal: false });
@@ -28050,8 +28057,16 @@
 	    //save here
 	  },
 	  handleClick: function handleClick(event) {
+	    var _this = this;
+
 	    event.preventDefault();
-	    console.log(this);
+	    console.log("here is the handleclick to axios for RID");
+
+	    _axios2.default.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	      return _this.setState({ selectedRecipe: response });
+	    });
+	    console.log(this.state.selectedRecipe);
+
 	    //load axios here using this.props to get the object ID
 
 	    this.setState({ showModal: true });
@@ -28082,12 +28097,12 @@
 	          _react2.default.createElement(
 	            'h4',
 	            null,
-	            'add recipe here'
+	            this.state.selectedRecipe.data.Description
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'and stuff'
+	            this.state.selectedRecipe.data.Instructions
 	          )
 	        ),
 	        _react2.default.createElement(

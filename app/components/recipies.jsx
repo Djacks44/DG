@@ -10,27 +10,19 @@ class ShowRecipe extends React.Component {
     super(props);
     this.state = {};
     console.log(this.props)
-   
-    
+
+
   }
 
    handleClick(obj, event){
     console.log(obj)
     this.setState({ reciped: obj })
-
-    
-  
   }
-
 
   handleClick2(obj, event){
     event.preventDefault();
     // save here
     console.log(obj)
-   
-
-    
-  
   }
 
 
@@ -50,8 +42,8 @@ class ShowRecipe extends React.Component {
             </div>
           </div>
         </div>
-        
-        <div className="wow bounceInUp" data-wow-offset="250">          
+
+        <div className="wow bounceInUp" data-wow-offset="250">
             <center><h2>Go ahead Search!.....</h2></center>
         </div>
       </section>
@@ -61,19 +53,19 @@ class ShowRecipe extends React.Component {
     }else{
       console.log(this.props.recipe == '')
       console.log(this.props.children)
-      var recipe = this.props.recipe 
+      var recipe = this.props.recipe
 
       var recipes = this.props.recipe.map(function(recipe, index){
 
     return(
     <div key={index}>
-    
+
      <div className="large-3 medium-6 small-12 columns" data-equalizer-watch>
             <div className="recipe text-center">
               <div className="recipe-cover">
                 <a onClick={this.handleClick.bind(this, recipe)} className="like"><i className="fa fa-plus"></i> More info</a>
                 <a href="recipe.html" className="type">{recipe.Category}</a>
-    
+
                  <img src={recipe.PhotoUrl} alt="" />
               </div>
               <h6 className="fontsans margin0"><a href="recipe.html">{recipe.Title}</a></h6>
@@ -97,9 +89,9 @@ if(this.state.reciped == undefined){
             </div>
           </div>
         </div>
-        
+
         <div className="wow bounceInUp" data-wow-offset="250">
-          <div className="row" data-equalizer>          
+          <div className="row" data-equalizer>
             {recipes}
           </div>
         </div>
@@ -119,9 +111,9 @@ if(this.state.reciped == undefined){
             </div>
           </div>
         </div>
-        
+
         <div className="wow bounceInUp" data-wow-offset="250">
-          <div className="row" data-equalizer>          
+          <div className="row" data-equalizer>
             {recipes}
              <Example recipe={this.state.reciped}/>
           </div>

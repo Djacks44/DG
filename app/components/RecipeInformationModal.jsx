@@ -6,7 +6,14 @@ import Modal from 'react-bootstrap/lib/Modal';
 const Example = React.createClass({
 
   getInitialState() {
-    return { showModal: false };
+    return {
+      showModal: false,
+      selectedRecipe: { data: {
+        Description: "",
+        Instructions: ""
+      }
+        }
+      };
 
   },
 
@@ -23,22 +30,27 @@ const Example = React.createClass({
 
     handleClick(event){
     event.preventDefault();
-    console.log(this)
+    console.log("here is the handleclick to axios for RID");
+
+    axios.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+         .then(response => this.setState({selectedRecipe:response}));
+         console.log(this.state.selectedRecipe);
+
     //load axios here using this.props to get the object ID
 
 
 
  this.setState({ showModal: true });
 
-    
-  
+
+
   },
 
   render() {
     // console.log(this.props.recipe)
     // console.log(this)
 
- 
+
 
     return (
       <div>
@@ -52,8 +64,8 @@ const Example = React.createClass({
             </Modal.Header>
 
             <Modal.Body>
-            <h4>add recipe here</h4>
-            <p>and stuff</p>
+            <h4>{this.state.selectedRecipe.data.Description}</h4>
+            <p>{ this.state.selectedRecipe.data.Instructions}</p>
           </Modal.Body>
 
           <Modal.Footer>
