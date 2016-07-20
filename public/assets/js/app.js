@@ -1,4 +1,4 @@
-  jQuery( function() {
+   jQuery( function() {
       jQuery(document).ready(function () {
           var jQuerycontainer = jQuery('.blog-entries').imagesLoaded( function() {
             // initialize Packery after all images have loaded
@@ -75,6 +75,7 @@ jQuery(document).ready(function(jQuery){
         });
     });
 });
+
 
 // creates profile functionality
 
