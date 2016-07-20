@@ -6,18 +6,19 @@ import Modal from 'react-bootstrap/lib/Modal';
 const Example = React.createClass({
 
   getInitialState() {
+    console.log(this.props.roy)
     return {
-      showModal: false,
-      selectedRecipe: { data: {
-        Description: "",
-        Instructions: "",
-        StarRating: "",
-        Title: "",
-      }
-        }
+      showModal: true,
+      selectedRecipe: this.props.roy,
       };
 
   },
+
+  componentWillReceiveProps: function(nextProps) {
+    console.log(nextProps)
+axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+    .then(response => this.setState({selectedRecipe:response, showModal: true}));
+},
 
   close() {
     this.setState({ showModal: false });
@@ -28,6 +29,7 @@ const Example = React.createClass({
   },
   save() {
     //save here
+    console.log('saved')
   },
 
     handleClick(event){
@@ -55,10 +57,7 @@ const Example = React.createClass({
 
 
     return (
-      <div>
-      <a className="recipe-link" onClick={this.handleClick}></a>
-
-
+      <div> 
         <Modal show={this.state.showModal} onHide={this.close}>
 
           <Modal.Header closeButton>

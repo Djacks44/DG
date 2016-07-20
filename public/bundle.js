@@ -5436,8 +5436,13 @@
 	  _createClass(ShowRecipe, [{
 	    key: 'handleClick',
 	    value: function handleClick(obj, event) {
+	      var _this2 = this;
+
 	      console.log(obj);
-	      this.setState({ reciped: obj });
+	      _axios2.default.get("http://api2.bigoven.com/recipe/" + obj.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	        return _this2.setState({ roy: response, reciped: obj });
+	      });
+	      console.log(this.state.roy);
 	    }
 	  }, {
 	    key: 'handleClick2',
@@ -5629,7 +5634,7 @@
 	                  'div',
 	                  { className: 'row', 'data-equalizer': true },
 	                  recipes,
-	                  _react2.default.createElement(_RecipeinformationModal2.default, { recipe: this.state.reciped })
+	                  _react2.default.createElement(_RecipeinformationModal2.default, { recipe: this.state.reciped, roy: this.state.roy })
 	                )
 	              )
 	            )
@@ -28038,17 +28043,23 @@
 	var Example = _react2.default.createClass({
 	  displayName: 'Example',
 	  getInitialState: function getInitialState() {
+	    console.log(this.props.roy);
 	    return {
-	      showModal: false,
-	      selectedRecipe: { data: {
-	          Description: "",
-	          Instructions: "",
-	          StarRating: "",
-	          Title: ""
-	        }
-	      }
+	      showModal: true,
+	      selectedRecipe: this.props.roy
 	    };
 	  },
+
+
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    var _this = this;
+
+	    console.log(nextProps);
+	    _axios2.default.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	      return _this.setState({ selectedRecipe: response, showModal: true });
+	    });
+	  },
+
 	  close: function close() {
 	    this.setState({ showModal: false });
 	  },
@@ -28057,15 +28068,16 @@
 	  },
 	  save: function save() {
 	    //save here
+	    console.log('saved');
 	  },
 	  handleClick: function handleClick(event) {
-	    var _this = this;
+	    var _this2 = this;
 
 	    event.preventDefault();
 	    console.log("here is the handleclick to axios for RID");
 
 	    _axios2.default.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
-	      return _this.setState({ selectedRecipe: response });
+	      return _this2.setState({ selectedRecipe: response });
 	    });
 	    console.log(this.state.selectedRecipe);
 
@@ -28080,7 +28092,6 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement('a', { className: 'recipe-link', onClick: this.handleClick }),
 	      _react2.default.createElement(
 	        _Modal2.default,
 	        { show: this.state.showModal, onHide: this.close },

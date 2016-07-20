@@ -16,7 +16,9 @@ class ShowRecipe extends React.Component {
 
    handleClick(obj, event){
     console.log(obj)
-    this.setState({ reciped: obj })
+axios.get("http://api2.bigoven.com/recipe/" + obj.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+    .then(response => this.setState({roy:response, reciped: obj}));
+    console.log(this.state.roy)
   }
 
   handleClick2(obj, event){
@@ -115,7 +117,7 @@ if(this.state.reciped == undefined){
         <div className="wow bounceInUp" data-wow-offset="250">
           <div className="row" data-equalizer>
             {recipes}
-             <Example recipe={this.state.reciped}/>
+             <Example recipe={this.state.reciped} roy={this.state.roy}/>
           </div>
         </div>
       </section>
