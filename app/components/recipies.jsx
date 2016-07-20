@@ -8,37 +8,29 @@ import Example from './RecipeinformationModal.jsx'
 class ShowRecipe extends React.Component {
     constructor(props) {
     super(props);
-    this.state = {showModal: false };
+    this.state = {};
     console.log(this.props)
    
     
   }
 
+   handleClick(obj, event){
+    console.log(obj)
+    this.setState({ reciped: obj })
+
+    
+  
+  }
+
+
   handleClick2(obj, event){
     event.preventDefault();
-    // console.log(this)
-    //save to db here
+    // save here
     console.log(obj)
-    
-  
+   
 
     
   
-  }
-
-  close(event) {
-    this.setState({ showModal: false });
-  }
-
-  open(obj, event) {
-      window.obj = obj
-    this.setState({ showModal: true });
-  }
-  save(event) {
-    console.log(window.obj)
-    //save to db here
-    
- 
   }
 
 
@@ -78,11 +70,11 @@ class ShowRecipe extends React.Component {
     
      <div className="large-3 medium-6 small-12 columns" data-equalizer-watch>
             <div className="recipe text-center">
-              <div onClick={this.open.bind(this, recipe)} className="recipe-cover">
-                <a onClick={this.handleClick2.bind(this, recipe)} className="like"><i className="fa fa-heart-o"></i> save</a>
+              <div className="recipe-cover">
+                <a onClick={this.handleClick.bind(this, recipe)} className="like"><i className="fa fa-plus"></i> More info</a>
                 <a href="recipe.html" className="type">{recipe.Category}</a>
+    
                  <img src={recipe.PhotoUrl} alt="" />
-                 <a className="recipe-link"></a>
               </div>
               <h6 className="fontsans margin0"><a href="recipe.html">{recipe.Title}</a></h6>
             </div>
@@ -91,9 +83,10 @@ class ShowRecipe extends React.Component {
 
   );
     }.bind(this))
+if(this.state.reciped == undefined){
 
-      if (this.state.obj == undefined) {
-        return(
+
+       return(
       <div>
         <section className="content-padding recipes">
         <div className="row">
@@ -114,10 +107,7 @@ class ShowRecipe extends React.Component {
     </div>
 
         );
-
-
-      }else{
-
+     }else{
       return(
       <div>
         <section className="content-padding recipes">
@@ -133,25 +123,7 @@ class ShowRecipe extends React.Component {
         <div className="wow bounceInUp" data-wow-offset="250">
           <div className="row" data-equalizer>          
             {recipes}
-
-      <div>
-        <Modal show={this.state.showModal==true} onHide={this.state.showModal==false}>
-
-          <Modal.Header>
-            <Modal.Title>{this.state.obj.Title}</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <p>Add Recipes Here</p>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button onClick={this.save.bind(this)}>Save</Button>
-            <Button onClick={this.close.bind(this)}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-
+             <Example recipe={this.state.reciped}/>
           </div>
         </div>
       </section>
@@ -159,8 +131,8 @@ class ShowRecipe extends React.Component {
 
         );
 
-  }
-     
+
+     }
 
 
   }

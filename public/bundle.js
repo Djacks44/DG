@@ -5427,36 +5427,24 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ShowRecipe).call(this, props));
 
-	    _this.state = { showModal: false };
+	    _this.state = {};
 	    console.log(_this.props);
 
 	    return _this;
 	  }
 
 	  _createClass(ShowRecipe, [{
+	    key: 'handleClick',
+	    value: function handleClick(obj, event) {
+	      console.log(obj);
+	      this.setState({ reciped: obj });
+	    }
+	  }, {
 	    key: 'handleClick2',
 	    value: function handleClick2(obj, event) {
 	      event.preventDefault();
-	      // console.log(this)
-	      //save to db here
+	      // save here
 	      console.log(obj);
-	    }
-	  }, {
-	    key: 'close',
-	    value: function close(event) {
-	      this.setState({ showModal: false });
-	    }
-	  }, {
-	    key: 'open',
-	    value: function open(obj, event) {
-	      window.obj = obj;
-	      this.setState({ showModal: true });
-	    }
-	  }, {
-	    key: 'save',
-	    value: function save(event) {
-	      console.log(window.obj);
-	      //save to db here
 	    }
 	  }, {
 	    key: 'render',
@@ -5529,20 +5517,19 @@
 	                { className: 'recipe text-center' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { onClick: this.open.bind(this, recipe), className: 'recipe-cover' },
+	                  { className: 'recipe-cover' },
 	                  _react2.default.createElement(
 	                    'a',
-	                    { onClick: this.handleClick2.bind(this, recipe), className: 'like' },
-	                    _react2.default.createElement('i', { className: 'fa fa-heart-o' }),
-	                    ' save'
+	                    { onClick: this.handleClick.bind(this, recipe), className: 'like' },
+	                    _react2.default.createElement('i', { className: 'fa fa-plus' }),
+	                    ' More info'
 	                  ),
 	                  _react2.default.createElement(
 	                    'a',
 	                    { href: 'recipe.html', className: 'type' },
 	                    recipe.Category
 	                  ),
-	                  _react2.default.createElement('img', { src: recipe.PhotoUrl, alt: '' }),
-	                  _react2.default.createElement('a', { className: 'recipe-link' })
+	                  _react2.default.createElement('img', { src: recipe.PhotoUrl, alt: '' })
 	                ),
 	                _react2.default.createElement(
 	                  'h6',
@@ -5557,8 +5544,8 @@
 	            )
 	          );
 	        }.bind(this));
+	        if (this.state.reciped == undefined) {
 
-	        if (this.state.obj == undefined) {
 	          return _react2.default.createElement(
 	            'div',
 	            null,
@@ -5603,7 +5590,6 @@
 	            )
 	          );
 	        } else {
-
 	          return _react2.default.createElement(
 	            'div',
 	            null,
@@ -5643,46 +5629,7 @@
 	                  'div',
 	                  { className: 'row', 'data-equalizer': true },
 	                  recipes,
-	                  _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                      _Modal2.default,
-	                      { show: this.state.showModal == true, onHide: this.state.showModal == false },
-	                      _react2.default.createElement(
-	                        _Modal2.default.Header,
-	                        null,
-	                        _react2.default.createElement(
-	                          _Modal2.default.Title,
-	                          null,
-	                          this.state.obj.Title
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        _Modal2.default.Body,
-	                        null,
-	                        _react2.default.createElement(
-	                          'p',
-	                          null,
-	                          'Add Recipes Here'
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        _Modal2.default.Footer,
-	                        null,
-	                        _react2.default.createElement(
-	                          _Button2.default,
-	                          { onClick: this.save.bind(this) },
-	                          'Save'
-	                        ),
-	                        _react2.default.createElement(
-	                          _Button2.default,
-	                          { onClick: this.close.bind(this) },
-	                          'Close'
-	                        )
-	                      )
-	                    )
-	                  )
+	                  _react2.default.createElement(_RecipeinformationModal2.default, { recipe: this.state.reciped })
 	                )
 	              )
 	            )
@@ -28093,21 +28040,20 @@
 	  getInitialState: function getInitialState() {
 	    return { showModal: false };
 	  },
-
-	  componentDidUpdate: function componentDidUpdate(nextProps, prevState, nextState) {
-	    console.log(nextProps, prevState, nextState);
-	    console.log('yes');
-	  },
-
 	  close: function close() {
 	    this.setState({ showModal: false });
 	  },
 	  open: function open() {
 	    this.setState({ showModal: true });
 	  },
+	  save: function save() {
+	    //save here
+	  },
 	  handleClick: function handleClick(event) {
 	    event.preventDefault();
 	    console.log(this);
+	    //load axios here using this.props to get the object ID
+
 	    this.setState({ showModal: true });
 	  },
 	  render: function render() {
@@ -28117,7 +28063,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement('a', { className: 'recipe-link', onClick: this.handleClick.bind(this) }),
+	      _react2.default.createElement('a', { className: 'recipe-link', onClick: this.handleClick }),
 	      _react2.default.createElement(
 	        _Modal2.default,
 	        { show: this.state.showModal, onHide: this.close },
@@ -28136,17 +28082,22 @@
 	          _react2.default.createElement(
 	            'h4',
 	            null,
-	            'Overflowing text to show scroll behavior'
+	            'add recipe here'
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Cras mattis consectetur purus sit amet fermt eros.'
+	            'and stuff'
 	          )
 	        ),
 	        _react2.default.createElement(
 	          _Modal2.default.Footer,
 	          null,
+	          _react2.default.createElement(
+	            _Button2.default,
+	            { onClick: this.save },
+	            'Save'
+	          ),
 	          _react2.default.createElement(
 	            _Button2.default,
 	            { onClick: this.close },

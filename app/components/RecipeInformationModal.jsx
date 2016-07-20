@@ -7,12 +7,7 @@ const Example = React.createClass({
 
   getInitialState() {
     return { showModal: false };
-  },
-    componentDidUpdate: function(nextProps, prevState, nextState){
-      console.log(nextProps, prevState, nextState)
-      console.log('yes')
 
-    
   },
 
   close() {
@@ -22,10 +17,17 @@ const Example = React.createClass({
   open() {
     this.setState({ showModal: true });
   },
+  save() {
+    //save here
+  },
 
     handleClick(event){
     event.preventDefault();
     console.log(this)
+    //load axios here using this.props to get the object ID
+
+
+
  this.setState({ showModal: true });
 
     
@@ -40,18 +42,22 @@ const Example = React.createClass({
 
     return (
       <div>
-        
-      <a className="recipe-link"  onClick={this.handleClick.bind(this)}></a>
+      <a className="recipe-link" onClick={this.handleClick}></a>
+
 
         <Modal show={this.state.showModal} onHide={this.close}>
+
           <Modal.Header closeButton>
             <Modal.Title>{this.props.recipe.Title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-     <h4>Overflowing text to show scroll behavior</h4>
-            <p>Cras mattis consectetur purus sit amet fermt eros.</p>
+            </Modal.Header>
+
+            <Modal.Body>
+            <h4>add recipe here</h4>
+            <p>and stuff</p>
           </Modal.Body>
+
           <Modal.Footer>
+            <Button onClick={this.save}>Save</Button>
             <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
