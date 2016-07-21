@@ -1,7 +1,7 @@
 /*
 Here is where you setup a model for how to interface with the database.
 */
-
+//this is to test a push to shortname
 var orm = require('../config/orm.js');
 
 var user = {
