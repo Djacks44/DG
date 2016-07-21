@@ -1,33 +1,36 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+/*
+Here is where you setup a model for how to interface with the database.
+*/
 
-var UserSchema = new Schema({
-	username: {
-    type: String,
-    trim: true,
-    required: "Username is Required"
-  },
-  password: {
-    type: String,
-    trim: true,
-    required: "Password is Required",
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      'Password should be longer.'
-    ]
-  },
-  email: {
-    type: String,
-    unique:true,
-    match: [/.+\@.+\..+/, "Please enter a valid e-mail address"],
-  },
-  userCreated: {
-    type: Date,
-    default: Date.now
-  },
-});
+var orm = require('../config/orm.js');
 
-var User = mongoose.model('User', UserSchema);
-module.exports = User;
+var user = {
+	findOne: function(condition, cb) {
+	  orm.findOne('users', condition, function(res){
+	      cb(res);
+	  });
+  },
+	all: function(cb) {
+		orm.all('users', function(res){
+			cb(res);
+		});
+	},
+	//cols and vals are arrays
+	createUser: function(cols, vals, cb) {
+		orm.createUser('users', cols, vals, function(res){
+			cb(res);
+		});
+	},
+	update: function(objColVals, condition, cb) {
+		orm.update('users', objColVals, condition, function(res){
+			cb(res);
+		});
+	},
+	delete: function(condition, cb){
+		orm.delete('users', condition, function(res){
+			cb(res);
+		});
+	}
+};
+
+module.exports = user;
