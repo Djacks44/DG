@@ -9,10 +9,8 @@ var Router = require('react-router').Router
 var routes = require('./config/routes');
 
 
-import SearchRecipe from './components/new.jsx'
-
 ReactDOM.render(
 
-	<div><SearchRecipe /></div>,
+	<Router>{routes}</Router>,
 	document.getElementById('app')
-	)
+)
