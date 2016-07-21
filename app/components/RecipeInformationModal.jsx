@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
+import DropdownButton from 'react-bootstrap/lib/DropdownButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 const Example = React.createClass({
 
@@ -16,7 +18,7 @@ const Example = React.createClass({
 
   componentWillReceiveProps: function(nextProps) {
     console.log(nextProps)
-axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+    axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
     .then(response => this.setState({selectedRecipe:response, showModal: true}));
 },
 
@@ -27,9 +29,9 @@ axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_
   open() {
     this.setState({ showModal: true });
   },
-  save() {
+  save(obj, events) {
+    console.log(obj);
     //save here
-    console.log('saved')
   },
 
     handleClick(event){
@@ -40,32 +42,49 @@ axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_
          .then(response => this.setState({selectedRecipe:response}));
          console.log(this.state.selectedRecipe);
 
-    //load axios here using this.props to get the object ID
-
-
-
- this.setState({ showModal: true });
-
-
+    this.setState({ showModal: true });
 
   },
 
+
   render() {
-    // console.log(this.props.recipe)
-    // console.log(this)
+      var plans = [{
+        title: "Plan1",
+        planedRecipes: [
+          {Recipe:"name1",Description:"DX",ingredients:"Yummy"},
+          {Recipe:"name2",Description:"FX",ingredients:"Tummy"},
+          {Recipe:"name3",Description:"DZX",ingredients:"Lummy"}
+          ]
+      },
+      {
+        title: "Plan2",
+        planedRecipes: [
+          {Recipe:"name4",Description:"DX",ingredients:"Yummy"},
+          {Recipe:"name5",Description:"FX",ingredients:"Tummy"},
+          {Recipe:"name6",Description:"DZX",ingredients:"Lummy"}
+          ]
+      }];
 
-
+        var addRecipetoMenu = plans.map(function(plans,index){
+          return(
+          <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
+      )}.bind(this));
 
     return (
-      <div> 
+      <div>
         <Modal show={this.state.showModal} onHide={this.close}>
 
           <Modal.Header closeButton>
             <Modal.Title>{this.state.selectedRecipe.data.Title}</Modal.Title>
+
             </Modal.Header>
 
             <Modal.Body>
             <h4>Rating: {Math.round(this.state.selectedRecipe.data.StarRating)}</h4>
+            <DropdownButton title="Save to Plan" id="bg-vertical-dropdown-3" >
+              <MenuItem onClick={this.save} > + Create New Plan </MenuItem>
+              {addRecipetoMenu}
+            </DropdownButton>
             <br />
             <strong>Description</strong>
             <p>{this.state.selectedRecipe.data.Description}</p>
@@ -75,13 +94,14 @@ axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={this.save}>Save</Button>
+
             <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
-  }
+  },
+
 });
 
 
