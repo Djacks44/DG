@@ -13,7 +13,6 @@ const Example = React.createClass({
     return {
       showModal: true,
       selectedRecipe: this.props.roy,
-      
       };
 
   },
@@ -70,7 +69,7 @@ const Example = React.createClass({
 
         var addRecipetoMenu = plans.map(function(plans,index){
           return(
-          <MenuItem onClick="">{plans.title}</MenuItem>
+          <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
       )}.bind(this));
 
     return (

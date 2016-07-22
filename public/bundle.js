@@ -26750,9 +26750,6 @@
 	        return _this3.setState({ search: response.data.Results });
 	      });
 	    }
-
-	    // "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K";
-
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -33529,7 +33526,6 @@
 	    return {
 	      showModal: true,
 	      selectedRecipe: this.props.roy
-
 	    };
 	  },
 
@@ -33576,7 +33572,7 @@
 	    var addRecipetoMenu = plans.map(function (plans, index) {
 	      return _react2.default.createElement(
 	        _MenuItem2.default,
-	        { onClick: '' },
+	        { onClick: this.save.bind(this, plans) },
 	        plans.title
 	      );
 	    }.bind(this));

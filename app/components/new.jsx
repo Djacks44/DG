@@ -27,11 +27,6 @@ class SearchRecipe extends React.Component {
   }
 
 
-
-  // "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K";
-
-
-
   render(){
     return(
        <div>
