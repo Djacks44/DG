@@ -5,17 +5,18 @@ var Route = Router.Route;
 
 var IndexRoute	= Router.IndexRoute;
 
-var Main = require('../components/Main');
+import SearchRecipe from '../components/new.jsx'
+import Plans from '../components/plans.jsx'
 var Search = require('../components/Search'); 
 var Saved = require('../components/Saved'); 
 
 
 module.exports = (
 
-	<Route path='/' component={Main}>
+	<Route path='/' component={SearchRecipe}>
 
 		
-		<Route path='Search' component={Search} />
+		<Route path='Profile' component={Plans} />
 		<Route path='Saved' component={Saved} />
 
 

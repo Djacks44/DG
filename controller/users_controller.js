@@ -12,6 +12,7 @@ var connection = require('../config/connection.js');
 
 //if user trys to sign in with the wrong password or email tell them that on the page
 router.post('/login', function(req, res) {
+	console.log(req.session);
 	var email = req.body.email;
 	var condition = "email = '" + email + "'";
 	user.findOne(condition, function(user){
@@ -20,17 +21,8 @@ router.post('/login', function(req, res) {
 					if (result == true){
 						req.session.logged_in = true;
 						req.session.user_id = user[0].userId;
-						req.session.user_email = user.email;
-						// if (user[0].role == 'admin') {
-						// 	req.session.isAdmin = true;
-						// 	debugger;
-						// 	console.log('This is admin - ', req.session.isAdmin);
-						// } else if (user[0].role == 'user') {
-						// 	req.session.isUser = true;
-						// 	debugger;
-						// 	console.log('This is user - ', req.session.isUser);
-						// }
-console.log('right before redirect');
+						req.session.user_email = user[0].email;
+
 						res.redirect('/');
 					}else{
             res.send('You put in the wrong password.')
@@ -93,18 +85,4 @@ module.exports = router;
 //       res.render('users/show', {userAndShops: userAndShops})
 //
 //   });
-// });
-
-// router.get('/', function(req,res) {
-// 	res.render('sign_in');
-// });
-//
-// router.get('/', function(req,res) {
-// 	res.render('sign_in');
-// });
-//
-// router.get('/sign-out', function(req,res) {
-//   req.session.destroy(function(err) {
-//      res.redirect('/')
-//   })
 // });

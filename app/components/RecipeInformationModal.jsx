@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Router from 'react-router'
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
@@ -16,10 +17,10 @@ const Example = React.createClass({
 
   },
 
-  componentWillReceiveProps: function(nextProps) {
-    console.log(nextProps)
-    axios.get("http://api2.bigoven.com/recipe/" + nextProps.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-    .then(response => this.setState({selectedRecipe:response, showModal: true}));
+  componentWillReceiveProps: function(nextProps, prevProps) {
+    console.log(prevProps,'loooook')
+    console.log(nextProps,'hey')
+  this.setState({selectedRecipe:nextProps.roy, showModal: true});
 },
 
   close() {
@@ -48,6 +49,8 @@ const Example = React.createClass({
 
 
   render() {
+      console.log(req.session);
+      
       var plans = [{
         title: "Plan1",
         planedRecipes: [

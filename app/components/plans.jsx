@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Router from 'react-router'
-import ShowRecipe from './recipies.jsx'
-import Example from './RecipeinformationModal.jsx'
 
 
-class SearchRecipe extends React.Component {
+class Plans extends React.Component {
     constructor(props) {
     super(props);
 
@@ -72,4 +70,4 @@ class SearchRecipe extends React.Component {
   }
 }
 
-export default SearchRecipe
+export default Plans
