@@ -24,7 +24,7 @@ app.use(express.static('./public'));
 
 
 //allow sessions
-app.use(session({cookieName:"hello", secret: 'app', cookie: { maxAge: 60000 }}));
+app.use(session({secret: 'app', cookie: { maxAge: 60000 }}));
 app.use(cookieParser());
 
 // override with POST having ?_method=DELETE
@@ -63,6 +63,8 @@ app.get('/MyRecipes', function(req, res){
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });
+
+
 
 //
 //

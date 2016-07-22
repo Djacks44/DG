@@ -26702,17 +26702,9 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _reactRouter = __webpack_require__(172);
-
-	var _reactRouter2 = _interopRequireDefault(_reactRouter);
-
 	var _recipies = __webpack_require__(255);
 
 	var _recipies2 = _interopRequireDefault(_recipies);
-
-	var _RecipeinformationModal = __webpack_require__(369);
-
-	var _RecipeinformationModal2 = _interopRequireDefault(_RecipeinformationModal);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26731,23 +26723,36 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchRecipe).call(this, props));
 
 	    _this.state = {
-	      search: []
+	      search: [],
+	      loggedin: false
 	    };
 	    return _this;
 	  }
 
 	  _createClass(SearchRecipe, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      _axios2.default.get('/users/userlogedin').then(function (req) {
+	        return _this2.setState({ loggedin: req.data.logged_in });
+	      });
+	    }
+	  }, {
 	    key: 'handleClick',
 	    value: function handleClick(event) {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      event.preventDefault();
 	      var x = this.refs.lol.value.trim();
 
 	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=8&any_kw=" + x + "&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
-	        return _this2.setState({ search: response.data.Results });
+	        return _this3.setState({ search: response.data.Results });
 	      });
 	    }
+
+	    // "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K";
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -33524,6 +33529,7 @@
 	    return {
 	      showModal: true,
 	      selectedRecipe: this.props.roy
+
 	    };
 	  },
 
@@ -33558,7 +33564,6 @@
 	    this.setState({ showModal: true });
 	  },
 	  render: function render() {
-	    console.log(req.session);
 
 	    var plans = [{
 	      title: "Plan1",
@@ -33571,7 +33576,7 @@
 	    var addRecipetoMenu = plans.map(function (plans, index) {
 	      return _react2.default.createElement(
 	        _MenuItem2.default,
-	        { onClick: this.save.bind(this, plans) },
+	        { onClick: '' },
 	        plans.title
 	      );
 	    }.bind(this));

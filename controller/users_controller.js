@@ -8,11 +8,13 @@ var connection = require('../config/connection.js');
 //this is the users_controller.js file
 
 
-
+router.get('/userlogedin',function(req,res){
+	res.json(req.session)
+});
 
 //if user trys to sign in with the wrong password or email tell them that on the page
 router.post('/login', function(req, res) {
-	console.log(req.session);
+
 	var email = req.body.email;
 	var condition = "email = '" + email + "'";
 	user.findOne(condition, function(user){

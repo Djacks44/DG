@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Router from 'react-router'
 import ShowRecipe from './recipies.jsx'
-import Example from './RecipeinformationModal.jsx'
 
 
 class SearchRecipe extends React.Component {
@@ -11,7 +9,13 @@ class SearchRecipe extends React.Component {
 
     this.state = {
       search:[],
-    };
+      loggedin: false
+    }
+  }
+
+  componentDidMount() {
+    axios.get('/users/userlogedin')
+         .then(req => this.setState({ loggedin: req.data.logged_in}));
   }
 
   handleClick(event){
@@ -21,6 +25,10 @@ class SearchRecipe extends React.Component {
    axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=8&any_kw="+x+"&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
      .then(response => this.setState({ search: response.data.Results}));
   }
+
+
+
+  // "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K";
 
 
 
