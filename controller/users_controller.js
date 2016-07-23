@@ -1,9 +1,10 @@
+//this is the users_controller.js file
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-// var shop = require('../model/shop.js'); may not need this but keeping it here just in case
 var user = require('../models/user.js');
 var connection = require('../config/connection.js');
+
 
 //this is the users_controller.js file
 
@@ -12,7 +13,7 @@ router.get('/userlogedin',function(req,res){
 	res.json(req.session)
 });
 
-//if user trys to sign in with the wrong password or email tell them that on the page
+ //in with the wrong password or email tell them that on the page
 router.post('/login', function(req, res) {
 
 	var email = req.body.email;
@@ -21,8 +22,10 @@ router.post('/login', function(req, res) {
 		if (user){
 			bcrypt.compare(req.body.password, user[0].password, function(err, result) {
 					if (result == true){
+
 						req.session.logged_in = true;
 						req.session.user_id = user[0].userId;
+						req.session.user_username = user[0].username;
 						req.session.user_email = user[0].email;
 
 						res.redirect('/');
@@ -41,7 +44,7 @@ router.post('/register', function(req,res) {
 
 	connection.query(queryString, function(err, users) {
 			if (err) throw err;
-			console.log(users.length);
+
 			if (users.length > 0){
 				res.send('we already have an email or username for this account');
 			}else{
@@ -49,7 +52,7 @@ router.post('/register', function(req,res) {
 					// var name = req.body.firstname + ' ' + req.b
 					// var role = 'user';
 
-					// console.log('this is my fucking naem', name);
+
 						bcrypt.hash(req.body.password, salt, function(err, hash) {
               user.createUser(['fullname','username', 'email', 'password'], [req.body.fullname, req.body.username, req.body.email, hash], function(user){
 
@@ -59,9 +62,6 @@ router.post('/register', function(req,res) {
                 req.session.user_id = user.insertId; //the MySQL npm package returns the id of the record inserted with a key of insertId.
 
                 res.redirect('/')
-								console.log(req.session);
-								console.log(req.session.logged_in);
-								console.log(req.session.username);
             	});
 
 						});

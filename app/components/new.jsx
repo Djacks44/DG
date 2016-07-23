@@ -40,10 +40,9 @@ class SearchRecipe extends React.Component {
             <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
             <ul id="mainnav">
               <li><a href="/" className="active">Home</a></li>
-              <li><a href="/Profile">Profile</a></li>
-              <li><a href="/MyRecipes">My Recipes</a></li>
+              <li><a href="/#/Profile">Profile</a></li>
               <li><a href="views/blog.html">About Us</a></li>
-              <li><a href="/auth/google">Sign In with Google</a></li>
+              <li><a href="/auth/google">Sign In </a></li>
             </ul>
           </div>
         </div>
