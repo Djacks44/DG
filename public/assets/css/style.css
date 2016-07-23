@@ -217,7 +217,7 @@ a {
 				}
 
 				#header nav ul li a.active {
-					border-bottom: 2px solid rgba(255,255,255,1);
+					/*border-bottom: 2px solid rgba(255,255,255,1);*/
 					color: rgba(255,255,255,1);
 				}
 
@@ -1029,7 +1029,7 @@ input[type="submit"] {
 	border-bottom-color: #e74c3c;
 	border-width: 10px;
 	margin-left: -10px;
-	
+
 }
 .PopUp a, .clickPopUp a{
 		font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;

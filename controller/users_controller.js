@@ -10,6 +10,8 @@ var connection = require('../config/connection.js');
 
 
 router.get('/userlogedin',function(req,res){
+	console.log("9999999999999999999999999999999");
+	console.log(req.session);
 	res.json(req.session)
 });
 

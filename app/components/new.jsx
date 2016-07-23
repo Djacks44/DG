@@ -17,7 +17,9 @@ class SearchRecipe extends React.Component {
     axios.get('/users/userlogedin')
          .then(req => this.setState({ loggedin: req.data.logged_in}));
   }
-
+  logout(){
+    this.setState({ loggedin: false})
+  }
   handleClick(event){
     event.preventDefault();
    var x = this.refs.lol.value.trim();
@@ -55,8 +57,8 @@ class SearchRecipe extends React.Component {
                    <li><a href="/" className="active">Home</a></li>
                    <li><a href="/#/Profile">Profile</a></li>
                    <li><a href="/MyRecipes">My Recipes</a></li>
-                   <li><a href="views/blog.html">About Us</a></li>
-                    <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" class="whtText">Log out</a></li>
+                   <li><a href="views/blog.html" >About Us</a></li>
+                    <li role="presentation"><a href="#" className="whtText" onClick={this.logout.bind(this)} >Log out</a></li>
                  </ul>
                </div>
              </div>
@@ -96,7 +98,7 @@ class SearchRecipe extends React.Component {
                      <li><a href="/" className="active">Home</a></li>
                      <li><a href="/MyRecipes">My Recipes</a></li>
                      <li><a href="views/blog.html">About Us</a></li>
-                      <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Please log in to save your searches</a></li>
+                      <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Login</a></li>
                    </ul>
                  </div>
                </div>

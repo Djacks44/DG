@@ -26735,6 +26735,11 @@
 	      });
 	    }
 	  }, {
+	    key: 'logout',
+	    value: function logout() {
+	      this.setState({ loggedin: false });
+	    }
+	  }, {
 	    key: 'handleClick',
 	    value: function handleClick(event) {
 	      var _this3 = this;
@@ -26831,7 +26836,7 @@
 	                      { role: 'presentation' },
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', 'class': 'whtText' },
+	                        { href: '#', className: 'whtText', onClick: this.logout.bind(this) },
 	                        'Log out'
 	                      )
 	                    )
@@ -26933,7 +26938,7 @@
 	                      _react2.default.createElement(
 	                        'a',
 	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', className: 'whtText' },
-	                        'Please log in to save your searches'
+	                        'Login'
 	                      )
 	                    )
 	                  )
@@ -28274,7 +28279,6 @@
 	    value: function render() {
 
 	      if (this.props.recipe == '') {
-	        console.log('nothing');
 	        return _react2.default.createElement(
 	          'div',
 	          null,

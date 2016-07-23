@@ -9,7 +9,9 @@ import Example from './RecipeinformationModal.jsx'
 class ShowRecipe extends React.Component {
     constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+
+    };
     console.log(this.props)
 
 
@@ -33,7 +35,6 @@ class ShowRecipe extends React.Component {
   render(){
 
     if (this.props.recipe == '') {
-      console.log('nothing')
          return(
           <div>
         <section className="content-padding recipes">
@@ -79,7 +80,6 @@ class ShowRecipe extends React.Component {
   );
     }.bind(this))
 if(this.state.reciped == undefined){
-
 
        return(
       <div>
