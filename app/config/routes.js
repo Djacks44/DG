@@ -3,25 +3,20 @@ var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
 
-var IndexRoute	= Router.IndexRoute;
+var IndexRoute  = Router.IndexRoute;
 
-var Main = require('../components/Main');
-var Search = require('../components/Search');
-var Saved = require('../components/Saved');
-
+import SearchRecipe from '../components/new.jsx'
+import Plans from '../components/plans.jsx'
 
 module.exports = (
 
-	<Route path='/' component={Main}>
+  <div>
 
+  <Route path='/' component={SearchRecipe}/>
 
-		<Route path='Search' component={Search} />
-		<Route path='Saved' component={Saved} />
-
-
-		<IndexRoute component={Search} />
-
-	</Route>
-
+   <Route path='Profile' component={Plans} />
+   
+   </div>
 
 );
+

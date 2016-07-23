@@ -49,7 +49,6 @@ const Example = React.createClass({
 
 
   render() {
-      console.log(req.session);
       
       var plans = [{
         title: "Plan1",
