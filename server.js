@@ -52,14 +52,6 @@ app.get('/', function(req, res){
 	res.sendFile('./public/index.html');
 });
 
-app.get('/Profile', function(req, res){
-	res.sendFile(process.cwd()+'/public/views/recipes.html');
-});
-
-app.get('/MyRecipes', function(req, res){
-	res.sendFile(process.cwd()+'/public/views/recipes.html');
-});
-
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });

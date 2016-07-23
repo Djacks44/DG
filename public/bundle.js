@@ -26671,15 +26671,11 @@
 
 	var IndexRoute = Router.IndexRoute;
 
-	var Search = __webpack_require__(428);
-	var Saved = __webpack_require__(432);
-
 	module.exports = React.createElement(
-			Route,
-			{ path: '/', component: _new2.default },
-			React.createElement(Route, { path: 'Profile', component: _plans2.default }),
-			React.createElement(Route, { path: 'Saved', component: Saved }),
-			React.createElement(IndexRoute, { component: Search })
+	  'div',
+	  null,
+	  React.createElement(Route, { path: '/', component: _new2.default }),
+	  React.createElement(Route, { path: 'Profile', component: _plans2.default })
 	);
 
 /***/ },
@@ -26753,41 +26749,85 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      // return(
-	      //    <div>
-	      //       <header id="header">
-	      //   <nav className="wow fadeInDown">
-	      //     <div className="row">
-	      //       <div className="large-3 medium-12 small-12 columns">
-	      //         <img src='assets/img/dailygrub.png' className="img-responsive logo"/>
-	      //       </div>
-	      //       <div className="large-9 medium-12 small-12 columns">
-	      //         <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
-	      //         <ul id="mainnav">
-	      //           <li><a href="/" className="active">Home</a></li>
-	      //           <li><a href="/Profile">Profile</a></li>
-	      //           <li><a href="/MyRecipes">My Recipes</a></li>
-	      //           <li><a href="views/blog.html">About Us</a></li>
-	      //           <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" class="whtText">Sign In</a></li>
-	      //         </ul>
-	      //       </div>
-	      //     </div>
-	      //   </nav>
-	      // )
 
 	      if (this.state.loggedin) {
-	        return _react2.default.createElement(
-	          'h1',
-	          null,
-	          'FUCK YOU!!!!!!!!'
-	        );
-	      } else {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
 	            'header',
-	            null,
+	            { id: 'header' },
+	            _react2.default.createElement(
+	              'nav',
+	              { className: 'wow fadeInDown' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'large-3 medium-12 small-12 columns' },
+	                  _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'large-9 medium-12 small-12 columns' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { id: 'showmobilemenu', className: 'hide-for-large-up' },
+	                    'Menu'
+	                  ),
+	                  _react2.default.createElement(
+	                    'ul',
+	                    { id: 'mainnav' },
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/', className: 'active' },
+	                        'Home'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/Profile' },
+	                        'Profile'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/MyRecipes' },
+	                        'My Recipes'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: 'views/blog.html' },
+	                        'About Us'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      { role: 'presentation' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', 'class': 'whtText' },
+	                        'Log out'
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            ),
 	            _react2.default.createElement(
 	              'section',
 	              { id: 'header-content' },
@@ -26817,7 +26857,117 @@
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search, loggedin: this.state.loggedin })
+	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
+	          )
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'header',
+	            { id: 'header' },
+	            _react2.default.createElement(
+	              'nav',
+	              { className: 'wow fadeInDown' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'large-3 medium-12 small-12 columns' },
+	                  _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'large-9 medium-12 small-12 columns' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { id: 'showmobilemenu', className: 'hide-for-large-up' },
+	                    'Menu'
+	                  ),
+	                  _react2.default.createElement(
+	                    'ul',
+	                    { id: 'mainnav' },
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/', className: 'active' },
+	                        'Home'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/#/Profile' },
+	                        'Profile'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/MyRecipes' },
+	                        'My Recipes'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: 'views/blog.html' },
+	                        'About Us'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      { role: 'presentation' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', className: 'whtText' },
+	                        'Log In'
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'section',
+	              { id: 'header-content' },
+	              _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.handleClick.bind(this) },
+	                  _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { id: 'bt', onClick: this.handleClick.bind(this) },
+	                    'Submit'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'h6',
+	                { className: 'big fontsans' },
+	                'The best recipes for tasty dishes'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
 	          )
 	        );
 	      }
@@ -37443,19 +37593,61 @@
 
 	  _createClass(Plans, [{
 	    key: 'handleClick',
-	    value: function handleClick(event) {
-	      var _this2 = this;
-
-	      event.preventDefault();
-	      var x = this.refs.lol.value.trim();
-
-	      _axios2.default.get("http://api2.bigoven.com/recipes?pg=1&rpp=8&any_kw=" + x + "&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
-	        return _this2.setState({ search: response.data.Results });
-	      });
-	    }
+	    value: function handleClick(event) {}
 	  }, {
 	    key: 'render',
 	    value: function render() {
+
+	      var plans = [{
+	        title: "Plan1",
+	        planedRecipes: [{ Recipe: "name1", Description: "DX", ingredients: "Yummy" }, { Recipe: "name2", Description: "FX", ingredients: "Tummy" }, { Recipe: "name3", Description: "DZX", ingredients: "Lummy" }]
+	      }, {
+	        title: "Plan2",
+	        planedRecipes: [{ Recipe: "name4", Description: "DX", ingredients: "Yummy" }, { Recipe: "name5", Description: "FX", ingredients: "Tummy" }, { Recipe: "name6", Description: "DZX", ingredients: "Lummy" }]
+	      }];
+
+	      var listPlan = plans.map(function (plans, index) {
+	        console.log(plans);
+	        console.log(index);
+
+	        var res = plans.planedRecipes.map(function (l, index) {
+	          console.log(l);
+	          console.log(index);
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            l.Recipe
+	          );
+	        }.bind(this));
+
+	        return _react2.default.createElement(
+	          'section',
+	          { className: 'content-padding plan planOne' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'wow bounceInRight row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-12 medium-12 small-12 columns text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'head align-center' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'margin0' },
+	                  plans.title
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'foodplanner' },
+	            res
+	          )
+	        );
+	      }.bind(this));
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -37489,7 +37681,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: '/', className: 'active' },
+	                      { href: '/' },
 	                      'Home'
 	                    )
 	                  ),
@@ -37498,17 +37690,8 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: '/Profile' },
+	                      { href: '/#/Profile', className: 'active' },
 	                      'Profile'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/MyRecipes' },
-	                      'My Recipes'
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -37526,44 +37709,100 @@
 	                    _react2.default.createElement(
 	                      'a',
 	                      { href: '/auth/google' },
-	                      'Sign In with Google'
+	                      'Sign In'
 	                    )
 	                  )
 	                )
 	              )
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'section',
-	            { id: 'header-content' },
-	            _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'form',
-	                { onSubmit: this.handleClick.bind(this) },
-	                _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
-	                _react2.default.createElement(
-	                  'button',
-	                  { id: 'bt', onClick: this.handleClick.bind(this) },
-	                  'Submit'
-	                )
-	              )
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'h6',
-	              { className: 'big fontsans' },
-	              'The best recipes for tasty dishes'
-	            )
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement(ShowRecipe, { recipe: this.state.search })
-	        )
+	          { className: 'wow bounceInLeft row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'large-12 medium-12 small-12 columns text-center' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'head align-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'ACon' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'Profile' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'Img' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'overlay' },
+	                      _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        _react2.default.createElement('img', null)
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'PopUp' },
+	                    'Click to see your current Plans'
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'clickPopUp' },
+	                    _react2.default.createElement(
+	                      'h4',
+	                      null,
+	                      'User'
+	                    ),
+	                    _react2.default.createElement(
+	                      'h5',
+	                      { className: 'buttons' },
+	                      ' ',
+	                      _react2.default.createElement(
+	                        'a',
+	                        { className: 'username planAnchor', href: 'javascript:;' },
+	                        'My Plans'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'h5',
+	                      { className: 'buttons' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { className: 'username accountAnchor', href: 'javascript;' },
+	                        'Settings'
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'Social' },
+	                    _react2.default.createElement(
+	                      'svg',
+	                      { viewBox: '0 0 512 512', id: 'logo', className: 'codepen' },
+	                      _react2.default.createElement('path', { className: 'box', d: 'M427 201.9c-0.6-4.2-2.9-8-6.4-10.3L264.2 87.3c-4.9-3.3-11.4-3.3-16.3 0L91.4 191.6c-4 2.7-6.5 7.4-6.5 12.2v104.3c0 4.8 2.5 9.6 6.5 12.2l156.4 104.3c4.9 3.3 11.4 3.3 16.3 0L420.6 320.4c4-2.6 6.6-7.4 6.6-12.2V203.9C427.1 203.2 427.1 202.6 427 201.9 427 201.7 427.1 202.6 427 201.9zM270.7 127.1l115.2 76.8 -51.5 34.4 -63.8-42.7V127.1zM241.3 127.1v68.6l-63.8 42.7 -51.5-34.4L241.3 127.1zM114.3 231.4l36.8 24.6 -36.8 24.6V231.4zM241.3 384.9L126.1 308.1l51.5-34.4 63.8 42.6V384.9zM256 290.8l-52-34.8 52-34.8 52 34.8L256 290.8zM270.7 384.9V316.3l63.8-42.6 51.5 34.4L270.7 384.9zM397.7 280.6l-36.8-24.6 36.8-24.6V280.6z' })
+	                    ),
+	                    _react2.default.createElement(
+	                      'svg',
+	                      { viewBox: '0 0 512 512', id: 'logo' },
+	                      _react2.default.createElement('path', { className: 'box', d: 'M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z' })
+	                    ),
+	                    _react2.default.createElement(
+	                      'svg',
+	                      { viewBox: '0 0 512 512', id: 'logo' },
+	                      _react2.default.createElement('path', { d: 'M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z' })
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        listPlan
 	      );
 	    }
 	  }]);
@@ -37572,597 +37811,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Plans;
-
-/***/ },
-/* 428 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(172);
-
-	var Query = __webpack_require__(429);
-	var Results = __webpack_require__(430);
-
-	var helpers = __webpack_require__(431);
-
-	var Search = React.createClass({
-		displayName: 'Search',
-
-
-		getInitialState: function getInitialState() {
-			return {
-				queryTerm: "",
-				startYear: "",
-				endYear: "",
-				results: {}
-			};
-		},
-
-		componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
-			console.log("COMPONENT UPDATED");
-			console.log(this.state.queryTerm);
-			console.log(this.state.startYear);
-			console.log(this.state.endYear);
-
-			console.log("Previous State", prevState);
-
-			if (this.state.queryTerm != "" && (prevState.queryTerm != this.state.queryTerm || prevState.startYear != this.state.startYear || prevState.endYear != this.state.endYear)) {
-				helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear).then(function (data) {
-					if (data != this.state.results) {
-						this.setState({
-							results: data
-						});
-					}
-
-					// console.log("RESULTS", results)
-					// console.log("DATA", data)
-				}.bind(this));
-			}
-		},
-
-		setQuery: function setQuery(newQuery, newStart, newEnd) {
-			console.log("TEST");
-			this.setState({
-				queryTerm: newQuery,
-				startYear: newStart,
-				endYear: newEnd
-			});
-		},
-
-		render: function render() {
-			console.log("Render Results", this.state.results);
-
-			return React.createElement(
-				'div',
-				{ className: 'main-container' },
-				React.createElement(Query, { updateSearch: this.setQuery }),
-				React.createElement(Results, { results: this.state.results })
-			);
-		}
-	});
-
-	module.exports = Search;
-
-/***/ },
-/* 429 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	// Include React and React-Router dependencies
-	var React = __webpack_require__(1);
-
-	// Query Component Declaration
-	var Query = React.createClass({
-		displayName: "Query",
-
-
-		// Here we set initial variables for the component to be blanks
-		getInitialState: function getInitialState() {
-			return {
-				search: "",
-				start: "",
-				end: ""
-			};
-		},
-
-		// Whenever we detect ANY change in the textbox, we register it. 
-		handleChange: function handleChange(event) {
-			console.log("TEXT CHANGED");
-
-			// Here we create syntax to capture any change in text to the query terms (pre-search).
-			// See this Stack Overflow answer for more details: 
-			// http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-			var newState = {};
-			newState[event.target.id] = event.target.value;
-			this.setState(newState);
-		},
-
-		/*This code handles the sending of the search terms to the parent Search component*/
-		handleSubmit: function handleSubmit() {
-			console.log("CLICKED");
-			this.props.updateSearch(this.state.search, this.state.start, this.state.end);
-			return false;
-		},
-
-		// Here we render the Query component
-		render: function render() {
-
-			return React.createElement(
-				"div",
-				{ className: "main-container" },
-				React.createElement(
-					"div",
-					{ className: "row" },
-					React.createElement(
-						"div",
-						{ className: "col-lg-12" },
-						React.createElement(
-							"div",
-							{ className: "panel panel-primary" },
-							React.createElement(
-								"div",
-								{ className: "panel-heading" },
-								React.createElement(
-									"h1",
-									{ className: "panel-title" },
-									React.createElement(
-										"strong",
-										null,
-										React.createElement("i", { className: "fa fa-newspaper-o", "aria-hidden": "true" }),
-										"  Query"
-									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "panel-body" },
-								React.createElement(
-									"form",
-									null,
-									React.createElement(
-										"div",
-										{ className: "form-group" },
-										React.createElement(
-											"h4",
-											{ className: "" },
-											React.createElement(
-												"strong",
-												null,
-												"Topic"
-											)
-										),
-										React.createElement("input", { type: "text", value: this.state.value, className: "form-control ", id: "search", onChange: this.handleChange, required: true }),
-										React.createElement(
-											"h4",
-											{ className: "" },
-											React.createElement(
-												"strong",
-												null,
-												"Start Year"
-											)
-										),
-										React.createElement("input", { type: "number", value: this.state.value, className: "form-control ", id: "start", onChange: this.handleChange, required: true }),
-										React.createElement(
-											"h4",
-											{ className: "" },
-											React.createElement(
-												"strong",
-												null,
-												"End Year"
-											)
-										),
-										React.createElement("input", { type: "number", value: this.state.value, className: "form-control ", id: "end", onChange: this.handleChange, required: true })
-									),
-									React.createElement(
-										"div",
-										{ className: "pull-right" },
-										React.createElement(
-											"button",
-											{ type: "button", className: "btn btn-danger", onClick: this.handleSubmit },
-											React.createElement(
-												"h4",
-												null,
-												"Submit"
-											)
-										)
-									)
-								)
-							)
-						)
-					)
-				)
-			);
-		}
-
-	});
-
-	// Export the module back to the route
-	module.exports = Query;
-
-/***/ },
-/* 430 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(172);
-
-	var helpers = __webpack_require__(431);
-
-	var Results = React.createClass({
-		displayName: 'Results',
-
-
-		getInitialState: function getInitialState() {
-			return {
-				title: "",
-				url: "",
-				pubdate: ""
-			};
-		},
-
-		handleClick: function handleClick(item, event) {
-			console.log("CLICKED");
-			console.log(item);
-
-			helpers.postSaved(item.headline.main, item.pub_date, item.web_url).then(function (data) {
-				console.log(item.web_url);
-			}.bind(this));
-		},
-
-		render: function render() {
-
-			if (!this.props.results.hasOwnProperty('docs')) {
-
-				return React.createElement(
-					'li',
-					{ className: 'list-group-item' },
-					React.createElement(
-						'h3',
-						null,
-						React.createElement(
-							'span',
-							null,
-							React.createElement(
-								'em',
-								null,
-								'Enter search terms to begin...'
-							)
-						)
-					)
-				);
-			} else {
-
-				var articles = this.props.results.docs.map(function (article, index) {
-
-					return React.createElement(
-						'div',
-						{ key: index },
-						React.createElement(
-							'li',
-							{ className: 'list-group-item' },
-							React.createElement(
-								'h3',
-								null,
-								React.createElement(
-									'span',
-									null,
-									React.createElement(
-										'em',
-										null,
-										article.headline.main
-									)
-								),
-								React.createElement(
-									'span',
-									{ className: 'btn-group pull-right' },
-									React.createElement(
-										'a',
-										{ href: article.web_url, target: '_blank' },
-										React.createElement(
-											'button',
-											{ className: 'btn btn-default ' },
-											'View Article'
-										)
-									),
-									React.createElement(
-										'button',
-										{ className: 'btn btn-primary', onClick: this.handleClick.bind(this, article) },
-										'Save'
-									)
-								)
-							),
-							React.createElement(
-								'p',
-								null,
-								'Date Published: ',
-								article.pub_date
-							)
-						)
-					);
-				}.bind(this));
-			}
-
-			return React.createElement(
-				'div',
-				{ className: 'main-container' },
-				React.createElement(
-					'div',
-					{ className: 'row' },
-					React.createElement(
-						'div',
-						{ className: 'col-lg-12' },
-						React.createElement(
-							'div',
-							{ className: 'panel panel-primary' },
-							React.createElement(
-								'div',
-								{ className: 'panel-heading' },
-								React.createElement(
-									'h1',
-									{ className: 'panel-title' },
-									React.createElement(
-										'strong',
-										null,
-										React.createElement('i', { className: 'fa fa-list-alt' }),
-										'  Results'
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'panel-body' },
-								React.createElement(
-									'ul',
-									{ className: 'list-group' },
-									articles
-								)
-							)
-						)
-					)
-				)
-			);
-		}
-
-	});
-
-	module.exports = Results;
-
-/***/ },
-/* 431 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	/*Include the Axios library for HTTP requests*/
-	var axios = __webpack_require__(236);
-
-	var APIKey = "9d4a8986921972b65754ea0809d47c84:12:74623931";
-
-	var helpers = {
-
-		runQuery: function runQuery(term, start, end) {
-
-			var term = term.trim();
-			var start = start.trim() + "0101";
-			var end = end.trim() + "1231";
-
-			console.log("Query Run");
-
-			return axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', {
-				params: {
-					'api-key': APIKey,
-					'q': term,
-					'begin_date': start,
-					'end_date': end
-				}
-			}).then(function (results) {
-				console.log("Axios Results", results.data.response);
-
-				return results.data.response;
-			});
-		},
-
-		getSaved: function getSaved() {
-
-			return axios.get('/api/saved').then(function (results) {
-				console.log("axios results", results);
-				return results;
-			});
-		},
-
-		postSaved: function postSaved(title, date, url) {
-
-			var newArticle = { title: title, date: date, url: url };
-			return axios.post('/api/saved', newArticle).then(function (results) {
-				console.log("axios results", results._id);
-				return results._id;
-			});
-		},
-
-		deleteSaved: function deleteSaved(title, data, url) {
-
-			return axios.delete('/api/saved', {
-				params: {
-					'title': title,
-					'data': data,
-					'url': url
-				}
-			}).then(function (results) {
-				console.log("axios results", results);
-				return results;
-			});
-		}
-
-	};
-
-	module.exports = helpers;
-
-/***/ },
-/* 432 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(172);
-
-	var helpers = __webpack_require__(431);
-
-	var Main = React.createClass({
-		displayName: 'Main',
-
-
-		getInitialState: function getInitialState() {
-			return {
-				savedArticles: ""
-			};
-		},
-
-		componentDidMount: function componentDidMount() {
-
-			helpers.getSaved().then(function (articleData) {
-				this.setState({
-					savedArticles: articleData.data
-				});
-				console.log("saved results", articleData.data);
-			}.bind(this));
-		},
-
-		handleClick: function handleClick(item, event) {
-			console.log("CLICKED");
-			console.log(item);
-
-			helpers.deleteSaved(item.title, item.date, item.url).then(function (data) {
-
-				helpers.getSaved().then(function (articleData) {
-					this.setState({
-						savedArticles: articleData.data
-					});
-					console.log("saved results", articleData.data);
-				}.bind(this));
-			}.bind(this));
-		},
-
-		render: function render() {
-
-			if (this.state.savedArticles == "") {
-				return React.createElement(
-					'li',
-					{ className: 'list-group-item' },
-					React.createElement(
-						'h3',
-						null,
-						React.createElement(
-							'span',
-							null,
-							React.createElement(
-								'em',
-								null,
-								'Save your first article...'
-							)
-						)
-					)
-				);
-			} else {
-
-				var articles = this.state.savedArticles.map(function (article, index) {
-
-					return React.createElement(
-						'div',
-						{ key: index },
-						React.createElement(
-							'li',
-							{ className: 'list-group-item' },
-							React.createElement(
-								'h3',
-								null,
-								React.createElement(
-									'span',
-									null,
-									React.createElement(
-										'em',
-										null,
-										article.title
-									)
-								),
-								React.createElement(
-									'span',
-									{ className: 'btn-group pull-right' },
-									React.createElement(
-										'a',
-										{ href: article.url, target: '_blank' },
-										React.createElement(
-											'button',
-											{ className: 'btn btn-default ' },
-											'View Article'
-										)
-									),
-									React.createElement(
-										'button',
-										{ className: 'btn btn-primary', onClick: this.handleClick.bind(this, article) },
-										'Delete'
-									)
-								)
-							),
-							React.createElement(
-								'p',
-								null,
-								'Date Published: ',
-								article.date
-							)
-						)
-					);
-				}.bind(this));
-			}
-
-			return React.createElement(
-				'div',
-				{ className: 'main-container' },
-				React.createElement(
-					'div',
-					{ className: 'row' },
-					React.createElement(
-						'div',
-						{ className: 'col-lg-12' },
-						React.createElement(
-							'div',
-							{ className: 'panel panel-primary' },
-							React.createElement(
-								'div',
-								{ className: 'panel-heading' },
-								React.createElement(
-									'h1',
-									{ className: 'panel-title' },
-									React.createElement(
-										'strong',
-										null,
-										React.createElement('i', { className: 'fa fa-download', 'aria-hidden': 'true' }),
-										' Saved Articles'
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'panel-body' },
-								React.createElement(
-									'ul',
-									{ className: 'list-group' },
-									articles
-								)
-							)
-						)
-					)
-				)
-			);
-		}
-	});
-
-	module.exports = Main;
 
 /***/ }
 /******/ ]);
