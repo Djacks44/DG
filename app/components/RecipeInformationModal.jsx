@@ -49,7 +49,7 @@ const Example = React.createClass({
 
 
   render() {
-
+   
       var plans = [{
         title: "Plan1",
         planedRecipes: [
