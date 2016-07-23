@@ -42,7 +42,7 @@ class SearchRecipe extends React.Component {
                  <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
                  <ul id="mainnav">
                    <li><a href="/" className="active">Home</a></li>
-                   <li><a href="/Profile">Profile</a></li>
+                   <li><a href="/#/Profile">Profile</a></li>
                    <li><a href="/MyRecipes">My Recipes</a></li>
                    <li><a href="views/blog.html">About Us</a></li>
                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" class="whtText">Log out</a></li>
@@ -83,10 +83,9 @@ class SearchRecipe extends React.Component {
                    <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
                    <ul id="mainnav">
                      <li><a href="/" className="active">Home</a></li>
-                     <li><a href="/#/Profile">Profile</a></li>
                      <li><a href="/MyRecipes">My Recipes</a></li>
                      <li><a href="views/blog.html">About Us</a></li>
-                      <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Log In</a></li>
+                      <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Please log in to save your searches</a></li>
                    </ul>
                  </div>
                </div>

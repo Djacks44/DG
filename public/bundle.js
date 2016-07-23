@@ -26793,7 +26793,7 @@
 	                      null,
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '/Profile' },
+	                        { href: '/#/Profile' },
 	                        'Profile'
 	                      )
 	                    ),
@@ -26903,15 +26903,6 @@
 	                      null,
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '/#/Profile' },
-	                        'Profile'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
 	                        { href: '/MyRecipes' },
 	                        'My Recipes'
 	                      )
@@ -26931,7 +26922,7 @@
 	                      _react2.default.createElement(
 	                        'a',
 	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', className: 'whtText' },
-	                        'Log In'
+	                        'Please log in to save your searches'
 	                      )
 	                    )
 	                  )
