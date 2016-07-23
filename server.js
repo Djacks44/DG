@@ -9,6 +9,18 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var Article = require('./models/user.js');
 
+var request = require('request');
+var mongojs = require('mongojs');
+var databaseUrl = 'mongodb://localhost/res';
+var collections = ["recipes"];
+
+
+
+var db = mongojs(databaseUrl, collections);
+db.on('error', function(err) {
+  console.log('Database Error:', err);
+});
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -32,16 +44,16 @@ app.use(methodOverride('_method'))
 
 
 //switch from momgo js to moongoose
-mongoose.connect('mongodb://localhost/nytreact');
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/nytreact');
+// var db = mongoose.connection;
 
-db.on('error', function (err) {
-	console.log('Mongoose Error: ', err);
-});
+// db.on('error', function (err) {
+// 	console.log('Mongoose Error: ', err);
+// });
 
-db.once('open', function () {
-	console.log('Mongoose connection successful.');
-});
+// db.once('open', function () {
+// 	console.log('Mongoose connection successful.');
+// });
 
 var logic = require('./server/logic/logic')
 var users_controller = require('./controller/users_controller');
@@ -55,6 +67,7 @@ app.get('/', function(req, res){
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });
+
 
 
 
@@ -75,24 +88,13 @@ app.listen(PORT, function() {
 // });
 //
 //
-// app.post('/api/saved', function(req, res){
-// 	var newArticle = new Article(req.body);
-//
-// 	console.log(req.body)
-//
-// 	var title = req.body.title;
-// 	var date = req.body.date;
-// 	var url = req.body.url;
-//
-// 	newArticle.save(function(err, doc){
-// 		if(err){
-// 			console.log(err);
-// 		} else {
-// 			res.send(doc._id);
-// 		}
-// 	});
-// });
-//
+app.post('/api/saved', function(req, res){
+	console.log(req.body);
+	
+
+
+});
+
 //
 // app.delete('/api/saved/', function(req, res){
 //
