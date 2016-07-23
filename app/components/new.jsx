@@ -21,10 +21,21 @@ class SearchRecipe extends React.Component {
   handleClick(event){
     event.preventDefault();
    var x = this.refs.lol.value.trim();
+   axios.get("http://api2.bigoven.com/recipes?rpp=12&any_kw="+x+"&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+     .then(response => this.setState({search: response.data.Results}))
 
-   axios.get("http://api2.bigoven.com/recipes?pg=1&rpp=8&any_kw="+x+"&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-     .then(response => this.setState({ search: response.data.Results}));
-  }
+      //  function(response){
+      //  var firstsearch = []
+      //  for (var i = 0; i < response.data.Results.length; i++) {
+      //    if(response.data.Results[i].StarRating > 0){
+      //      firstsearch.push(response.data.Results[i])
+      //    }
+      //      if(firstsearch.length = 8){
+      //        this.setState({ search: firstsearch})
+      //      }
+      //  }
+  // }.bind(this))
+}
 
 
   render(){
