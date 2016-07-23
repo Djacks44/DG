@@ -26753,115 +26753,74 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'header',
-	          { id: 'header' },
+	      // return(
+	      //    <div>
+	      //       <header id="header">
+	      //   <nav className="wow fadeInDown">
+	      //     <div className="row">
+	      //       <div className="large-3 medium-12 small-12 columns">
+	      //         <img src='assets/img/dailygrub.png' className="img-responsive logo"/>
+	      //       </div>
+	      //       <div className="large-9 medium-12 small-12 columns">
+	      //         <span id="showmobilemenu" className="hide-for-large-up">Menu</span>
+	      //         <ul id="mainnav">
+	      //           <li><a href="/" className="active">Home</a></li>
+	      //           <li><a href="/Profile">Profile</a></li>
+	      //           <li><a href="/MyRecipes">My Recipes</a></li>
+	      //           <li><a href="views/blog.html">About Us</a></li>
+	      //           <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" class="whtText">Sign In</a></li>
+	      //         </ul>
+	      //       </div>
+	      //     </div>
+	      //   </nav>
+	      // )
+
+	      if (this.state.loggedin) {
+	        return _react2.default.createElement(
+	          'h1',
+	          null,
+	          'FUCK YOU!!!!!!!!'
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
 	          _react2.default.createElement(
-	            'nav',
-	            { className: 'wow fadeInDown' },
+	            'header',
+	            null,
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'row' },
+	              'section',
+	              { id: 'header-content' },
+	              _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'large-3 medium-12 small-12 columns' },
-	                _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'large-9 medium-12 small-12 columns' },
+	                null,
 	                _react2.default.createElement(
-	                  'span',
-	                  { id: 'showmobilemenu', className: 'hide-for-large-up' },
-	                  'Menu'
-	                ),
-	                _react2.default.createElement(
-	                  'ul',
-	                  { id: 'mainnav' },
+	                  'form',
+	                  { onSubmit: this.handleClick.bind(this) },
+	                  _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
 	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/', className: 'active' },
-	                      'Home'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/Profile' },
-	                      'Profile'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/MyRecipes' },
-	                      'My Recipes'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'views/blog.html' },
-	                      'About Us'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/auth/google' },
-	                      'Sign In with Google'
-	                    )
+	                    'button',
+	                    { id: 'bt', onClick: this.handleClick.bind(this) },
+	                    'Submit'
 	                  )
 	                )
+	              ),
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'h6',
+	                { className: 'big fontsans' },
+	                'The best recipes for tasty dishes'
 	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'section',
-	            { id: 'header-content' },
-	            _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'form',
-	                { onSubmit: this.handleClick.bind(this) },
-	                _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
-	                _react2.default.createElement(
-	                  'button',
-	                  { id: 'bt', onClick: this.handleClick.bind(this) },
-	                  'Submit'
-	                )
-	              )
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'h6',
-	              { className: 'big fontsans' },
-	              'The best recipes for tasty dishes'
-	            )
+	            'div',
+	            null,
+	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search, loggedin: this.state.loggedin })
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
-	        )
-	      );
+	        );
+	      }
 	    }
 	  }]);
 
