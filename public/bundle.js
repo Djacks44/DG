@@ -26761,25 +26761,10 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-<<<<<<< HEAD
-	var _recipies = __webpack_require__(255);
-
-	var _recipies2 = _interopRequireDefault(_recipies);
-
-=======
-	var _reactRouter = __webpack_require__(172);
-
-	var _reactRouter2 = _interopRequireDefault(_reactRouter);
-
 	var _recipies = __webpack_require__(256);
 
 	var _recipies2 = _interopRequireDefault(_recipies);
 
-	var _RecipeinformationModal = __webpack_require__(370);
-
-	var _RecipeinformationModal2 = _interopRequireDefault(_RecipeinformationModal);
-
->>>>>>> shorthand
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26827,106 +26812,227 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'header',
-	          { id: 'header' },
+	      if (this.state.loggedin) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
 	          _react2.default.createElement(
-	            'nav',
-	            { className: 'wow fadeInDown' },
+	            'header',
+	            { id: 'header' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'row' },
+	              'nav',
+	              { className: 'wow fadeInDown' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'large-3 medium-12 small-12 columns' },
-	                _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'large-9 medium-12 small-12 columns' },
+	                { className: 'row' },
 	                _react2.default.createElement(
-	                  'span',
-	                  { id: 'showmobilemenu', className: 'hide-for-large-up' },
-	                  'Menu'
+	                  'div',
+	                  { className: 'large-3 medium-12 small-12 columns' },
+	                  _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
 	                ),
 	                _react2.default.createElement(
-	                  'ul',
-	                  { id: 'mainnav' },
+	                  'div',
+	                  { className: 'large-9 medium-12 small-12 columns' },
 	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/', className: 'active' },
-	                      'Home'
-	                    )
+	                    'span',
+	                    { id: 'showmobilemenu', className: 'hide-for-large-up' },
+	                    'Menu'
 	                  ),
 	                  _react2.default.createElement(
-	                    'li',
-	                    null,
+	                    'ul',
+	                    { id: 'mainnav' },
 	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/#/Profile' },
-	                      'Profile'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/', className: 'active' },
+	                        'Home'
+	                      )
+	                    ),
 	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'views/blog.html' },
-	                      'About Us'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/Profile' },
+	                        'Profile'
+	                      )
+	                    ),
 	                    _react2.default.createElement(
-	                      'a',
-	                      { href: '/auth/google' },
-	                      'Sign In '
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/MyRecipes' },
+	                        'My Recipes'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: 'views/blog.html' },
+	                        'About Us'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      { role: 'presentation' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', 'class': 'whtText' },
+	                        'Log out'
+	                      )
 	                    )
 	                  )
 	                )
 	              )
+	            ),
+	            _react2.default.createElement(
+	              'section',
+	              { id: 'header-content' },
+	              _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.handleClick.bind(this) },
+	                  _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { id: 'bt', onClick: this.handleClick.bind(this) },
+	                    'Submit'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'h6',
+	                { className: 'big fontsans' },
+	                'The best recipes for tasty dishes'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'section',
-	            { id: 'header-content' },
-	            _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
+	            'div',
+	            null,
+	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
+	          )
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'header',
+	            { id: 'header' },
 	            _react2.default.createElement(
-	              'div',
-	              null,
+	              'nav',
+	              { className: 'wow fadeInDown' },
 	              _react2.default.createElement(
-	                'form',
-	                { onSubmit: this.handleClick.bind(this) },
-	                _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	                'div',
+	                { className: 'row' },
 	                _react2.default.createElement(
-	                  'button',
-	                  { id: 'bt', onClick: this.handleClick.bind(this) },
-	                  'Submit'
+	                  'div',
+	                  { className: 'large-3 medium-12 small-12 columns' },
+	                  _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'img-responsive logo' })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'large-9 medium-12 small-12 columns' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { id: 'showmobilemenu', className: 'hide-for-large-up' },
+	                    'Menu'
+	                  ),
+	                  _react2.default.createElement(
+	                    'ul',
+	                    { id: 'mainnav' },
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/', className: 'active' },
+	                        'Home'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/#/Profile' },
+	                        'Profile'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '/MyRecipes' },
+	                        'My Recipes'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: 'views/blog.html' },
+	                        'About Us'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      { role: 'presentation' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '#', 'data-toggle': 'modal', 'data-target': '#sign-in', className: 'whtText' },
+	                        'Log In'
+	                      )
+	                    )
+	                  )
 	                )
 	              )
 	            ),
-	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
-	              'h6',
-	              { className: 'big fontsans' },
-	              'The best recipes for tasty dishes'
+	              'section',
+	              { id: 'header-content' },
+	              _react2.default.createElement('img', { src: 'assets/img/dailygrub.png', className: 'wow fadeInDown img-responsive logo' }),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.handleClick.bind(this) },
+	                  _react2.default.createElement('input', { id: 'bti', type: 'text', ref: 'lol', placeholder: 'What do you want to Eat?' }),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { id: 'bt', onClick: this.handleClick.bind(this) },
+	                    'Submit'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'h6',
+	                { className: 'big fontsans' },
+	                'The best recipes for tasty dishes'
+	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_recipies2.default, { recipe: this.state.search })
-	        )
-	      );
+	        );
+	      }
 	    }
 	  }]);
 
@@ -37563,8 +37669,18 @@
 	      }];
 
 	      var listPlan = plans.map(function (plans, index) {
+	        console.log(plans);
+	        console.log(index);
 
-	        console.log(plans.PlanedRecipes);
+	        var res = plans.planedRecipes.map(function (l, index) {
+	          console.log(l);
+	          console.log(index);
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            l.Recipe
+	          );
+	        }.bind(this));
 
 	        return _react2.default.createElement(
 	          'section',
@@ -37586,7 +37702,11 @@
 	              )
 	            )
 	          ),
-	          _react2.default.createElement('div', { id: 'foodplanner' })
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'foodplanner' },
+	            res
+	          )
 	        );
 	      }.bind(this));
 

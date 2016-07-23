@@ -45,10 +45,15 @@ class Plans extends React.Component {
 
 
         var listPlan = plans.map(function(plans,index){
-       
-        
-            console.log(plans.PlanedRecipes)
-     
+          console.log(plans)
+          console.log(index)
+
+          var res = plans.planedRecipes.map(function(l,index){
+              console.log(l)
+              console.log(index)
+              return(
+                <div>{l.Recipe}</div>
+              )}.bind(this));
 
 
           return(
@@ -61,7 +66,7 @@ class Plans extends React.Component {
         </div>
       </div>
     <div id="foodplanner">
-    
+    {res}
 
 
     </div>
