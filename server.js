@@ -12,7 +12,7 @@ var Article = require('./models/user.js');
 var request = require('request');
 var mongojs = require('mongojs');
 var databaseUrl = 'mongodb://localhost/res';
-var collections = ["recipes"];
+var collections = ["users"];
 
 
 
@@ -90,8 +90,25 @@ app.listen(PORT, function() {
 //
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
-	
+	var recipe1 = req.body.data
+	console.log(req.body.data);
+	var name = req.session.user_email
 
+  			db.users.update({
+			    'name': name
+			  }, 
+			  {
+			    $push: {
+			            'res': recipe1,
+			    }
+			  }, function(err, edited) {
+			    if (err) {
+			      console.log(err);
+
+			    } else {
+			      console.log(edited);
+			    }
+			  });
 
 });
 

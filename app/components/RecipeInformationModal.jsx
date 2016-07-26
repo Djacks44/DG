@@ -33,6 +33,13 @@ const Example = React.createClass({
   save(obj, events) {
     console.log(obj);
     //save here
+   axios.post('/api/saved', obj).then(function (data) {
+     console.log('saved successfully');
+    });
+
+
+
+
   },
 
     handleClick(event){
@@ -84,7 +91,7 @@ const Example = React.createClass({
             <Modal.Body>
             <h4>Rating: {Math.round(this.state.selectedRecipe.data.StarRating)}</h4>
             <DropdownButton title="Save to Plan" id="bg-vertical-dropdown-3" >
-              <MenuItem onClick={this.save} > + Create New Plan </MenuItem>
+              <MenuItem onClick={this.save.bind(this, this.state.selectedRecipe)} > + Create New Plan </MenuItem>
               {addRecipetoMenu}
             </DropdownButton>
             <br />

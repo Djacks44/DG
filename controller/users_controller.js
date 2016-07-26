@@ -4,6 +4,18 @@ var express = require('express');
 var router = express.Router();
 var user = require('../models/user.js');
 var connection = require('../config/connection.js');
+var request = require('request');
+var mongojs = require('mongojs');
+var databaseUrl = 'mongodb://localhost/res';
+var collections = ["users"];
+
+
+
+var db = mongojs(databaseUrl, collections);
+db.on('error', function(err) {
+  console.log('Database Error:', err);
+});
+
 
 
 //this is the users_controller.js file
@@ -63,7 +75,46 @@ router.post('/register', function(req,res) {
                 req.session.logged_in = true;
                 req.session.user_id = user.insertId; //the MySQL npm package returns the id of the record inserted with a key of insertId.
 
+
+
+
+
+
+              var bog = {name: req.body.email, res: []};
+
+              db.users.insert(bog, function(err, found) {
+			      if (err) {
+			        console.log(err);
+			      } else {
+			      	console.log(found)
+			      	console.log('successfull')
+			      }
+			  }); 
+
+
+
+
+
+
+
                 res.redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             	});
 
 						});
