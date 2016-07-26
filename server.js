@@ -87,20 +87,40 @@ app.listen(PORT, function() {
 // 		})
 // });
 //
-//
+
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
 	var recipe1 = req.body.data
 	console.log(req.body.data);
-	var name = req.session.user_email
+	var name1 = req.session.user_email
+
+
+
+		//needs to be in an if statment db needs to insert if a new plan is chosen 
+		//title needs to come trough the route with object so we can define it here
+
+	// var bog = {name: name1, title: "", res: []};
+
+ //              db.users.insert(bog, function(err, found) {
+	// 		      if (err) {
+	// 		        console.log(err);
+	// 		      } else {
+	// 		      	console.log(found)
+	// 		      	console.log('successfull')
+	// 		      }
+	// 		  }); 
+
+//right now this just updates the first plan
+//just put a variable for title to make it work
 
   			db.users.update({
-			    'name': name
+			    'name': name1,
+			    'title': "plan1"
 			  }, 
 			  {
-			    $push: {
+			    $push: 		{
 			            'res': recipe1,
-			    }
+			    			}
 			  }, function(err, edited) {
 			    if (err) {
 			      console.log(err);
@@ -110,6 +130,22 @@ app.post('/api/saved', function(req, res){
 			    }
 			  });
 
+});
+
+app.get('/api/show', function(req, res){
+	  var name = req.session.user_email
+
+      db.users.find({
+        'name': name
+    }, function(err, found){
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log(found);
+            res.json(found);
+        }
+    });
 });
 
 //

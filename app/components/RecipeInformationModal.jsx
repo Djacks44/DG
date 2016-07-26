@@ -20,6 +20,10 @@ const Example = React.createClass({
   componentWillReceiveProps: function(nextProps, prevProps) {
     console.log(prevProps,'loooook')
     console.log(nextProps,'hey')
+      axios.get("/api/show")
+         .then(response => this.setState({plans:response}));
+         console.log(this.state.plans);
+
   this.setState({selectedRecipe:nextProps.roy, showModal: true});
 },
 
@@ -30,8 +34,9 @@ const Example = React.createClass({
   open() {
     this.setState({ showModal: true });
   },
-  save(obj, events) {
+  save(plans, obj, events) {
     console.log(obj);
+    console.log(plans);
     //save here
    axios.post('/api/saved', obj).then(function (data) {
      console.log('saved successfully');
@@ -56,6 +61,7 @@ const Example = React.createClass({
 
 
   render() {
+
    
       var plans = [{
         title: "Plan1",

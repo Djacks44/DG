@@ -80,7 +80,7 @@ router.post('/register', function(req,res) {
 
 
 
-              var bog = {name: req.body.email, res: []};
+              var bog = {name: req.body.email, title: "Plan1", res: []};
 
               db.users.insert(bog, function(err, found) {
 			      if (err) {

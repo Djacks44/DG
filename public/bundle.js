@@ -33709,8 +33709,15 @@
 
 
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, prevProps) {
+	    var _this = this;
+
 	    console.log(prevProps, 'loooook');
 	    console.log(nextProps, 'hey');
+	    _axios2.default.get("/api/show").then(function (response) {
+	      return _this.setState({ plans: response });
+	    });
+	    console.log(this.state.plans);
+
 	    this.setState({ selectedRecipe: nextProps.roy, showModal: true });
 	  },
 
@@ -33720,21 +33727,22 @@
 	  open: function open() {
 	    this.setState({ showModal: true });
 	  },
-	  save: function save(obj, events) {
+	  save: function save(plans, obj, events) {
 	    console.log(obj);
+	    console.log(plans);
 	    //save here
 	    _axios2.default.post('/api/saved', obj).then(function (data) {
 	      console.log('saved successfully');
 	    });
 	  },
 	  handleClick: function handleClick(event) {
-	    var _this = this;
+	    var _this2 = this;
 
 	    event.preventDefault();
 	    console.log("here is the handleclick to axios for RID");
 
 	    _axios2.default.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
-	      return _this.setState({ selectedRecipe: response });
+	      return _this2.setState({ selectedRecipe: response });
 	    });
 	    console.log(this.state.selectedRecipe);
 
