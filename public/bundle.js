@@ -33727,11 +33727,17 @@
 	  open: function open() {
 	    this.setState({ showModal: true });
 	  },
-	  save: function save(plans, obj, events) {
+	  save: function save(obj, events) {
 	    console.log(obj);
-	    console.log(plans);
+
+	    var pasObj = {
+	      image: obj.data.ImageURL,
+	      title: obj.data.Title,
+	      recipeid: obj.data.RecipeID
+	    };
+
 	    //save here
-	    _axios2.default.post('/api/saved', obj).then(function (data) {
+	    _axios2.default.post('/api/saved', pasObj).then(function (data) {
 	      console.log('saved successfully');
 	    });
 	  },
@@ -33749,22 +33755,6 @@
 	    this.setState({ showModal: true });
 	  },
 	  render: function render() {
-
-	    var plans = [{
-	      title: "Plan1",
-	      planedRecipes: [{ Recipe: "name1", Description: "DX", ingredients: "Yummy" }, { Recipe: "name2", Description: "FX", ingredients: "Tummy" }, { Recipe: "name3", Description: "DZX", ingredients: "Lummy" }]
-	    }, {
-	      title: "Plan2",
-	      planedRecipes: [{ Recipe: "name4", Description: "DX", ingredients: "Yummy" }, { Recipe: "name5", Description: "FX", ingredients: "Tummy" }, { Recipe: "name6", Description: "DZX", ingredients: "Lummy" }]
-	    }];
-
-	    var addRecipetoMenu = plans.map(function (plans, index) {
-	      return _react2.default.createElement(
-	        _MenuItem2.default,
-	        { onClick: this.save.bind(this, plans) },
-	        plans.title
-	      );
-	    }.bind(this));
 
 	    return _react2.default.createElement(
 	      'div',
@@ -33796,9 +33786,8 @@
 	            _react2.default.createElement(
 	              _MenuItem2.default,
 	              { onClick: this.save.bind(this, this.state.selectedRecipe) },
-	              ' + Create New Plan '
-	            ),
-	            addRecipetoMenu
+	              '  add to plan Plan '
+	            )
 	          ),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
@@ -37666,86 +37655,30 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Plans).call(this, props));
 
 	    _this.state = {
-	      search: []
+	      res: []
 	    };
+
 	    return _this;
 	  }
 
 	  _createClass(Plans, [{
 	    key: 'handleClick',
-	    value: function handleClick(event) {}
+	    value: function handleClick(event) {
+	      var _this2 = this;
+
+	      _axios2.default.get("/api/show").then(function (response) {
+	        return _this2.setState({ res: response.res });
+	      });
+	      console.log(this.state.res);
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 
-	      var plans = [{
-	        title: "Vacation Week",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-	      }, {
-	        title: "Food for Thought",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-	      }, {
-	        title: "For James",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }, {
-	        title: "Cheat week",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }, {
-	        title: "Cream of the Crop",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }, {
-	        title: "Fit Fam",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }, {
-	        title: "Rutgers Week",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }, {
-	        title: "Programming Meals",
-	        planedRecipes: [{ Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }, { Recipe: "Latin Burger", pic: "http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png", ingredients: "Yummy" }, { Recipe: "Ice Cream", pic: "https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients: "Tummy" }, { Recipe: "Turkey", pic: "https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients: "Lummy" }, { Recipe: "Turkey", pic: "http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients: "Lummy" }]
-
-	      }];
-
-	      var listPlan = plans.map(function (plans, index) {
-	        console.log(plans);
+	      var red = this.state.res.map(function (l, index) {
+	        console.log(l);
 	        console.log(index);
-
-	        var res = plans.planedRecipes.map(function (l, index) {
-	          console.log(l);
-	          console.log(index);
-	          return _react2.default.createElement('img', { id: 'sick', src: l.pic, alt: '' });
-	        }.bind(this));
-
-	        return _react2.default.createElement(
-	          'section',
-	          { className: 'content-padding plan planOne' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'wow bounceInRight row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'large-12 medium-12 small-12 columns text-center' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'head align-center' },
-	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'margin0' },
-	                  plans.title
-	                )
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { id: 'foodplanner' },
-	            res
-	          )
-	        );
+	        return _react2.default.createElement('img', { id: 'sick', src: l.image, alt: '' });
 	      }.bind(this));
 
 	      return _react2.default.createElement(
@@ -37902,7 +37835,37 @@
 	            )
 	          )
 	        ),
-	        listPlan
+	        _react2.default.createElement(
+	          'button',
+	          { id: 'bt', onClick: this.handleClick.bind(this) },
+	          'Show recipes'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'content-padding plan planOne' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'wow bounceInRight row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-12 medium-12 small-12 columns text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'head align-center' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'margin0' },
+	                  'Plan One'
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'foodplanner' },
+	            red
+	          )
+	        )
 	      );
 	    }
 	  }]);

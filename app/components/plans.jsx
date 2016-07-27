@@ -7,12 +7,18 @@ class Plans extends React.Component {
     constructor(props) {
     super(props);
 
-    this.state = {
-      search:[],
+     this.state = {
+      res:[],
     };
+
+
   }
 
   handleClick(event){
+
+    axios.get("/api/show")
+      .then(response => this.setState({res:response.res}));
+        console.log(this.state.res);
 
   }
 
@@ -22,149 +28,14 @@ class Plans extends React.Component {
 
 
 
-
-      var plans = [{
-        title: "Vacation Week",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          ]
-      },
-      {
-        title: "Food for Thought",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-        },
-        {
-        title: "For James",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      },
-      {
-        title: "Cheat week",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      },
-      {
-        title: "Cream of the Crop",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      },
-      {
-        title: "Fit Fam",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      },
-      {
-        title: "Rutgers Week",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      },
-      {
-        title: "Programming Meals",
-        planedRecipes: [
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"},
-          {Recipe:"Latin Burger", pic:"http://redirect.bigoven.com/pics/rs/640/latin-burger-1689038.png",ingredients:"Yummy"},
-          {Recipe:"Ice Cream", pic:"https://photos.bigoven.com/recipe/hero/pistachio-ice-cream-1590324.jpg", ingredients:"Tummy"},
-          {Recipe:"Turkey", pic:"https://photos.bigoven.com/recipe/hero/turkey-bolognese-1656185.jpg", ingredients:"Lummy"},
-          {Recipe:"Turkey", pic:"http://photos.bigoven.com/recipe/hero/ham-and-brie-pastries-recipe-34544d-7003f6b05c8822f19c01f222.jpg", ingredients:"Lummy"}
-          ]
-          
-      }];
-
-
-
-
-        var listPlan = plans.map(function(plans,index){
-          console.log(plans)
-          console.log(index)
-
-          var res = plans.planedRecipes.map(function(l,index){
+          var red = this.state.res.map(function(l,index){
               console.log(l)
               console.log(index)
               return(
-               <img id="sick" src={l.pic} alt="" />
+               <img id="sick" src={l.image} alt="" />
               )}.bind(this));
 
 
-          return(
-          <section className='content-padding plan planOne'>
-       <div className="wow bounceInRight row">
-        <div className="large-12 medium-12 small-12 columns text-center">
-          <div className="head align-center">
-            <h2 className="margin0">{plans.title}</h2>
-          </div>
-        </div>
-      </div>
-    <div id="foodplanner">
-    {res}
-
-
-    </div>
-  </section>
-      )}.bind(this));
 
 
     return(
@@ -216,8 +87,23 @@ class Plans extends React.Component {
 </div>
 </div>
 </div>
+<button id="bt" onClick={this.handleClick.bind(this)}>Show recipes</button>
 
-{listPlan}
+          <section className='content-padding plan planOne'>
+       <div className="wow bounceInRight row">
+        <div className="large-12 medium-12 small-12 columns text-center">
+          <div className="head align-center">
+            <h2 className="margin0">Plan One</h2>
+          </div>
+        </div>
+      </div>
+    <div id="foodplanner">
+    {red}
+
+
+    </div>
+  </section>
+
   </div>
 
   );

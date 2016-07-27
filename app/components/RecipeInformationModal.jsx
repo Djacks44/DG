@@ -34,11 +34,22 @@ const Example = React.createClass({
   open() {
     this.setState({ showModal: true });
   },
-  save(plans, obj, events) {
+  save(obj, events) {
     console.log(obj);
-    console.log(plans);
+
+    
+
+    var pasObj = {
+                  image:obj.data.ImageURL,
+                  title:obj.data.Title,
+                  recipeid:obj.data.RecipeID
+                 }
+
+
+
+
     //save here
-   axios.post('/api/saved', obj).then(function (data) {
+   axios.post('/api/saved', pasObj).then(function (data) {
      console.log('saved successfully');
     });
 
@@ -63,27 +74,6 @@ const Example = React.createClass({
   render() {
 
    
-      var plans = [{
-        title: "Plan1",
-        planedRecipes: [
-          {Recipe:"name1",Description:"DX",ingredients:"Yummy"},
-          {Recipe:"name2",Description:"FX",ingredients:"Tummy"},
-          {Recipe:"name3",Description:"DZX",ingredients:"Lummy"}
-          ]
-      },
-      {
-        title: "Plan2",
-        planedRecipes: [
-          {Recipe:"name4",Description:"DX",ingredients:"Yummy"},
-          {Recipe:"name5",Description:"FX",ingredients:"Tummy"},
-          {Recipe:"name6",Description:"DZX",ingredients:"Lummy"}
-          ]
-      }];
-
-        var addRecipetoMenu = plans.map(function(plans,index){
-          return(
-          <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
-      )}.bind(this));
 
     return (
       <div>
@@ -97,8 +87,7 @@ const Example = React.createClass({
             <Modal.Body>
             <h4>Rating: {Math.round(this.state.selectedRecipe.data.StarRating)}</h4>
             <DropdownButton title="Save to Plan" id="bg-vertical-dropdown-3" >
-              <MenuItem onClick={this.save.bind(this, this.state.selectedRecipe)} > + Create New Plan </MenuItem>
-              {addRecipetoMenu}
+            <MenuItem onClick={this.save.bind(this, this.state.selectedRecipe)} >  add to plan Plan </MenuItem>
             </DropdownButton>
             <br />
             <strong>Description</strong>

@@ -36,7 +36,7 @@ app.use(express.static('./public'));
 
 
 //allow sessions
-app.use(session({secret: 'app', cookie: { maxAge: 60000 }}));
+app.use(session({secret: 'app', cookie: { maxAge: 60000000000000000000000}}));
 app.use(cookieParser());
 
 // override with POST having ?_method=DELETE
@@ -90,7 +90,7 @@ app.listen(PORT, function() {
 
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
-	var recipe1 = req.body.data
+	var recipe = req.body
 	console.log(req.body.data);
 	var name1 = req.session.user_email
 
@@ -115,11 +115,10 @@ app.post('/api/saved', function(req, res){
 
   			db.users.update({
 			    'name': name1,
-			    'title': "plan1"
 			  }, 
 			  {
 			    $push: 		{
-			            'res': recipe1,
+			            'res': recipe,
 			    			}
 			  }, function(err, edited) {
 			    if (err) {
@@ -162,3 +161,25 @@ app.get('/api/show', function(req, res){
 // 		}
 // 	});
 // });
+      // var plans = [{
+      //   title: "Plan1",
+      //   planedRecipes: [
+      //     {Recipe:"name1",Description:"DX",ingredients:"Yummy"},
+      //     {Recipe:"name2",Description:"FX",ingredients:"Tummy"},
+      //     {Recipe:"name3",Description:"DZX",ingredients:"Lummy"}
+      //     ]
+      // },
+      // {
+      //   title: "Plan2",
+      //   planedRecipes: [
+      //     {Recipe:"name4",Description:"DX",ingredients:"Yummy"},
+      //     {Recipe:"name5",Description:"FX",ingredients:"Tummy"},
+      //     {Recipe:"name6",Description:"DZX",ingredients:"Lummy"}
+      //     ]
+      // }];
+
+      //   var addRecipetoMenu = plans.map(function(plans,index){
+      //     return(
+      //     <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
+      // )}.bind(this));
+
