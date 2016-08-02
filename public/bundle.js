@@ -37822,32 +37822,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'section',
-	          { className: 'content-padding plan planOne' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'wow bounceInRight row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'large-12 medium-12 small-12 columns text-center' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'head align-center' },
-	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'margin0' },
-	                  'Plan One'
-	                )
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { id: 'foodplanner' },
-	            _react2.default.createElement(_showfood2.default, { pool: this.state.pool })
-	          )
-	        )
+	        _react2.default.createElement(_showfood2.default, { pool: this.state.pool })
 	      );
 	    }
 	  }]);
@@ -37906,31 +37881,100 @@
 	    //   .then(response => this.setState({pool:response}));
 	    //     console.log(this.state.res);
 
+
+	    //     db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
+
+	    // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+	    // db.users.update({ name: "djacks@udel.edu"},{ "$push": {array: {_id:"Plan Two", title:"Plan Two", res: []}}})
+
 	  },
 	  render: function render() {
 	    // console.log(this.props.pool)
 	    // console.log(this.state.plans)
 
+
 	    if (this.props.pool == undefined) {
 
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        'section',
+	        { className: 'content-padding plan planOne' },
 	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Start Saving.....'
+	          'div',
+	          { className: 'wow bounceInRight row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'large-12 medium-12 small-12 columns text-center' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'head align-center' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'margin0' },
+	                'Plan One'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'foodplanner' },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Start Saving.....'
+	            )
+	          )
 	        )
 	      );
 	    } else {
-	      var foods = this.props.pool.data[0].res.map(function (food, index) {
-	        return _react2.default.createElement('img', { id: 'sick', src: food.image, alt: '' });
+	      var listplan = this.props.pool.data[0].array.map(function (planz, index) {
+
+	        console.log(planz.res);
+
+	        var foods = planz.res.map(function (food, index) {
+	          return _react2.default.createElement('img', { id: 'sick', src: food.image, alt: '' });
+	        }.bind(this));
+
+	        return _react2.default.createElement(
+	          'section',
+	          { className: 'content-padding plan planOne' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'wow bounceInRight row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-12 medium-12 small-12 columns text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'head align-center' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'margin0' },
+	                  planz.title
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'foodplanner' },
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              foods
+	            )
+	          )
+	        );
 	      }.bind(this));
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        foods
+	        listplan
 	      );
 	    }
 	  }

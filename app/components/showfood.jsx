@@ -30,31 +30,71 @@ const Showfood = React.createClass({
     // console.log(this.props.pool)
     // console.log(this.state.plans)
 
+
   if(this.props.pool == undefined){
 
+
+
   return (
+  <section className='content-padding plan planOne'>
+       <div className="wow bounceInRight row">
+        <div className="large-12 medium-12 small-12 columns text-center">
+          <div className="head align-center">
+            <h2 className="margin0">Plan One</h2>
+          </div>
+        </div>
+      </div>
+    <div id="foodplanner">
+
         <div>
           <h2>
             Start Saving.....
           </h2>
         </div>
+    </div>
+  </section>
         );
 
 
 
 
-}else{
-             var foods = this.props.pool.data[0].res.map(function(food,index){
-              return(
-               <img id="sick" src={food.image} alt="" />
-              )}.bind(this));
-   
+}else{  
+  var listplan = this.props.pool.data[0].array.map(function(planz,index){
+
+    console.log(planz.res)
+
+    var foods = planz.res.map(function(food,index){
+       return(
+        <img id="sick" src={food.image} alt="" />
+        )}.bind(this));
 
     return (
-        <div>{foods}</div>
+    <section className='content-padding plan planOne'>
+       <div className="wow bounceInRight row">
+        <div className="large-12 medium-12 small-12 columns text-center">
+          <div className="head align-center">
+            <h2 className="margin0">{planz.title}</h2>
+          </div>
+        </div>
+      </div>
+    <div id="foodplanner">
+        <div>
+            {foods}
+        </div>
+    </div>
+  </section>
+       
 
-      );
-  }
+      )}.bind(this));
+
+
+
+ return (
+       <div>
+       {listplan}
+       </div>
+      )
+      }
   },
 
 });

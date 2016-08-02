@@ -88,19 +88,8 @@ class Plans extends React.Component {
 </div>
 
 
-          <section className='content-padding plan planOne'>
-       <div className="wow bounceInRight row">
-        <div className="large-12 medium-12 small-12 columns text-center">
-          <div className="head align-center">
-            <h2 className="margin0">Plan One</h2>
-          </div>
-        </div>
-      </div>
-    <div id="foodplanner">
  <Showfood  pool={this.state.pool}/>
 
-    </div>
-  </section>
 
   </div>
 

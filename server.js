@@ -116,12 +116,16 @@ app.post('/api/saved', function(req, res){
 //right now this just updates the first plan
 //just put a variable for title to make it work
 
+ // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+
   			db.users.update({
 			    'name': name1,
+          "array._id": "Plan 1",
 			  }, 
 			  {
 			    $push: 		{
-			            'res': recipe,
+			            "array.$.res": recipe,
 			    			}
 			  }, function(err, edited) {
 			    if (err) {
@@ -164,25 +168,10 @@ app.get('/api/show', function(req, res){
 // 		}
 // 	});
 // });
-      // var plans = [{
-      //   title: "Plan1",
-      //   planedRecipes: [
-      //     {Recipe:"name1",Description:"DX",ingredients:"Yummy"},
-      //     {Recipe:"name2",Description:"FX",ingredients:"Tummy"},
-      //     {Recipe:"name3",Description:"DZX",ingredients:"Lummy"}
-      //     ]
-      // },
-      // {
-      //   title: "Plan2",
-      //   planedRecipes: [
-      //     {Recipe:"name4",Description:"DX",ingredients:"Yummy"},
-      //     {Recipe:"name5",Description:"FX",ingredients:"Tummy"},
-      //     {Recipe:"name6",Description:"DZX",ingredients:"Lummy"}
-      //     ]
-      // }];
+   
+ //  db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
 
-      //   var addRecipetoMenu = plans.map(function(plans,index){
-      //     return(
-      //     <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
-      // )}.bind(this));
+ // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+ // db.users.update({ name: "djacks@udel.edu"},{ "$push": {array: {_id:"Plan Two", title:"Plan Two", res: []}}})
 
