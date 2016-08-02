@@ -15,11 +15,20 @@ class Plans extends React.Component {
 
   }
 
+     componentWillMount() {
+
+
+    axios.get("/api/show")
+      .then(response => this.setState({pool:response}));
+      console.log('Component WILL MOUNT!')
+
+  }
+
   handleClick(event){
 
     axios.get("/api/show")
       .then(response => this.setState({pool:response}));
-        console.log(this.state.res);
+       
 
   }
 
@@ -41,8 +50,8 @@ class Plans extends React.Component {
             <ul id="mainnav">
               <li><a href="/">Home</a></li>
               <li><a href="/#/Profile" className="active">Profile</a></li>
-              <li><a href="views/blog.html">About Us</a></li>
-              <li><a href="/auth/google">Sign In</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="#">Logged In</a></li>
             </ul>
           </div>
         </div>
@@ -77,7 +86,7 @@ class Plans extends React.Component {
 </div>
 </div>
 </div>
-<button id="bt" onClick={this.handleClick.bind(this)}>Show recipes</button>
+
 
           <section className='content-padding plan planOne'>
        <div className="wow bounceInRight row">

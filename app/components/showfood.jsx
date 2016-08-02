@@ -9,62 +9,49 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
 const Showfood = React.createClass({
 
   getInitialState() {
-    console.log(this.props.pool)
-    console.log('lol')
+
+
     return {
-      selectedRecipe: this.props.pool,
+      pool: this.props.pool,
       };
 
   },
 
-  componentWillReceiveProps: function(nextProps, prevProps) {
-    console.log(prevProps,'loooook')
-    console.log(nextProps,'hey')
-      axios.get("/api/show")
-         .then(response => this.setState({plans:response}));
-         console.log(this.state.plans);
-},
 
+  handleClick(event){
+    // axios.get("/api/show")
+    //   .then(response => this.setState({pool:response}));
+    //     console.log(this.state.res);
 
-
-  //   handleClick(event){
-  //   event.preventDefault();
-  //   console.log("here is the handleclick to axios for RID");
-
-  //   axios.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-  //        .then(response => this.setState({selectedRecipe:response}));
-  //        console.log(this.state.selectedRecipe);
-
-  //   this.setState({ showModal: true });
-
-  // },
+  },
 
 
   render() {
-    console.log(this.props.pool)
-    console.log(this.state.plans)
+    // console.log(this.props.pool)
+    // console.log(this.state.plans)
 
-if(this.props.pool == undefined){
+  if(this.props.pool == undefined){
 
   return (
-        <div>lol</div>
-
-      );
+        <div>
+          <h2>
+            Start Saving.....
+          </h2>
+        </div>
+        );
 
 
 
 
 }else{
-             var red = this.props.pool.data[0].res.map(function(l,index){
-              console.log(l)
-              console.log(index)
+             var foods = this.props.pool.data[0].res.map(function(food,index){
               return(
-               <img id="sick" src={l.image} alt="" />
+               <img id="sick" src={food.image} alt="" />
               )}.bind(this));
    
 
     return (
-        <div>{red}</div>
+        <div>{foods}</div>
 
       );
   }

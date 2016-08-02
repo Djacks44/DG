@@ -63,6 +63,9 @@ app.use('/users', users_controller);
 app.get('/', function(req, res){
 	res.sendFile('./public/index.html');
 });
+app.get('/about', function(req, res){
+  res.sendFile(process.cwd()+'/public/views/contact.html');
+});
 
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
