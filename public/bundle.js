@@ -37638,6 +37638,10 @@
 
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
+	var _showfood = __webpack_require__(429);
+
+	var _showfood2 = _interopRequireDefault(_showfood);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37654,9 +37658,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Plans).call(this, props));
 
-	    _this.state = {
-	      res: []
-	    };
+	    _this.state = {};
 
 	    return _this;
 	  }
@@ -37667,19 +37669,13 @@
 	      var _this2 = this;
 
 	      _axios2.default.get("/api/show").then(function (response) {
-	        return _this2.setState({ res: response.res });
+	        return _this2.setState({ pool: response });
 	      });
 	      console.log(this.state.res);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
-	      var red = this.state.res.map(function (l, index) {
-	        console.log(l);
-	        console.log(index);
-	        return _react2.default.createElement('img', { id: 'sick', src: l.image, alt: '' });
-	      }.bind(this));
 
 	      return _react2.default.createElement(
 	        'div',
@@ -37863,7 +37859,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { id: 'foodplanner' },
-	            red
+	            _react2.default.createElement(_showfood2.default, { pool: this.state.pool })
 	          )
 	        )
 	      );
@@ -37874,6 +37870,106 @@
 	}(_react2.default.Component);
 
 	exports.default = Plans;
+
+/***/ },
+/* 429 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(237);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+	var _Button = __webpack_require__(257);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Modal = __webpack_require__(296);
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	var _DropdownButton = __webpack_require__(371);
+
+	var _DropdownButton2 = _interopRequireDefault(_DropdownButton);
+
+	var _MenuItem = __webpack_require__(427);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Showfood = _react2.default.createClass({
+	  displayName: 'Showfood',
+	  getInitialState: function getInitialState() {
+	    console.log(this.props.pool);
+	    console.log('lol');
+	    return {
+	      selectedRecipe: this.props.pool
+	    };
+	  },
+
+
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, prevProps) {
+	    var _this = this;
+
+	    console.log(prevProps, 'loooook');
+	    console.log(nextProps, 'hey');
+	    _axios2.default.get("/api/show").then(function (response) {
+	      return _this.setState({ plans: response });
+	    });
+	    console.log(this.state.plans);
+	  },
+
+	  //   handleClick(event){
+	  //   event.preventDefault();
+	  //   console.log("here is the handleclick to axios for RID");
+
+	  //   axios.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+	  //        .then(response => this.setState({selectedRecipe:response}));
+	  //        console.log(this.state.selectedRecipe);
+
+	  //   this.setState({ showModal: true });
+
+	  // },
+
+
+	  render: function render() {
+	    console.log(this.props.pool);
+	    console.log(this.state.plans);
+
+	    if (this.props.pool == undefined) {
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'lol'
+	      );
+	    } else {
+	      var red = this.props.pool.data[0].res.map(function (l, index) {
+	        console.log(l);
+	        console.log(index);
+	        return _react2.default.createElement('img', { id: 'sick', src: l.image, alt: '' });
+	      }.bind(this));
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        red
+	      );
+	    }
+	  }
+	});
+
+	module.exports = Showfood;
 
 /***/ }
 /******/ ]);

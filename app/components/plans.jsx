@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Router from 'react-router'
+import Showfood from './showfood.jsx'
 
 
 class Plans extends React.Component {
@@ -8,7 +9,7 @@ class Plans extends React.Component {
     super(props);
 
      this.state = {
-      res:[],
+ 
     };
 
 
@@ -17,7 +18,7 @@ class Plans extends React.Component {
   handleClick(event){
 
     axios.get("/api/show")
-      .then(response => this.setState({res:response.res}));
+      .then(response => this.setState({pool:response}));
         console.log(this.state.res);
 
   }
@@ -25,17 +26,6 @@ class Plans extends React.Component {
 
 
   render(){
-
-
-
-          var red = this.state.res.map(function(l,index){
-              console.log(l)
-              console.log(index)
-              return(
-               <img id="sick" src={l.image} alt="" />
-              )}.bind(this));
-
-
 
 
     return(
@@ -98,8 +88,7 @@ class Plans extends React.Component {
         </div>
       </div>
     <div id="foodplanner">
-    {red}
-
+ <Showfood  pool={this.state.pool}/>
 
     </div>
   </section>
