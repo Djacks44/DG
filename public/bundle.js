@@ -27134,6 +27134,8 @@
 	    };
 	    return _this;
 	  }
+	  //c
+
 
 	  _createClass(SearchRecipe, [{
 	    key: 'componentDidMount',
@@ -27228,8 +27230,8 @@
 	                      null,
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '/about' },
-	                        'About Us'
+	                        { href: '/MyRecipes' },
+	                        'My Recipes'
 	                      )
 	                    ),
 	                    _react2.default.createElement(
@@ -27238,7 +27240,7 @@
 	                      _react2.default.createElement(
 	                        'a',
 	                        { href: 'views/blog.html' },
-	                        'boobies r Us'
+	                        'About Us'
 	                      )
 	                    ),
 	                    _react2.default.createElement(
@@ -38323,13 +38325,6 @@
 	    // axios.get("/api/show")
 	    //   .then(response => this.setState({pool:response}));
 	    //     console.log(this.state.res);
-
-
-	    //     db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
-
-	    // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
-
-	    // db.users.update({ name: "djacks@udel.edu"},{ "$push": {array: {_id:"Plan Two", title:"Plan Two", res: []}}})
 
 	  },
 	  render: function render() {
