@@ -97,7 +97,7 @@ class SearchRecipe extends React.Component {
                    <ul id="mainnav">
                      <li><a href="/" className="active">Home</a></li>
                      <li><a href="/about">About Us</a></li>
-                      <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Login</a></li>
+                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#sign-in" className="whtText">Login</a></li>
                    </ul>
                  </div>
                </div>
