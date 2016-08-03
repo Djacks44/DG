@@ -12,7 +12,7 @@ class SearchRecipe extends React.Component {
       loggedin: false
     }
   }
-
+//c
   componentDidMount() {
     axios.get('/users/userlogedin')
          .then(req => this.setState({ loggedin: req.data.logged_in}));
