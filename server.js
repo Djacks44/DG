@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 //
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var Article = require('./models/user.js');
+var Recipe = require('./models/user.js');
 
 var request = require('request');
 var mongojs = require('mongojs');
@@ -43,18 +43,6 @@ app.use(cookieParser());
 app.use(methodOverride('_method'))
 
 
-//switch from momgo js to moongoose
-// mongoose.connect('mongodb://localhost/nytreact');
-// var db = mongoose.connection;
-
-// db.on('error', function (err) {
-// 	console.log('Mongoose Error: ', err);
-// });
-
-// db.once('open', function () {
-// 	console.log('Mongoose connection successful.');
-// });
-
 var logic = require('./server/logic/logic')
 var users_controller = require('./controller/users_controller');
 app.use('/search',logic);
@@ -71,34 +59,11 @@ app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });
 
-
-
-
-//
-//
-// app.get('/api/saved', function(req, res) {
-//
-// 	Article.find({})
-// 		.exec(function(err, doc){
-//
-// 			if(err){
-// 				console.log(err);
-// 			}
-// 			else {
-// 				res.send(doc);
-// 			}
-// 		})
-// });
-//
-
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
 	var recipe = req.body
 	console.log(req.body.data);
 	var name1 = req.session.user_email
-
-
-
 		//needs to be in an if statment db needs to insert if a new plan is chosen
 		//title needs to come trough the route with object so we can define it here
 
@@ -153,6 +118,39 @@ app.get('/api/show', function(req, res){
         }
     });
 });
+
+mongoose.connect('mongodb://localhost/testbigoven');
+var db = mongoose.connection;
+
+db.on('error', function (err) {
+	console.log('Mongoose Error: ', err);
+});
+
+db.once('open', function () {
+	console.log('Mongoose connection successful.');
+});
+
+app.post('/api/bigoven', function(req, res){
+	var newRecipe = new Recipe(req.body);
+
+	console.log(req.body)
+
+	var title = req.body.title;
+	var ingredients = req.body.ingredients;
+	var instructions = req.body.instructions;
+	var rating = req.body.rating;
+	var date = req.body.date;
+
+
+	newRecipe.save(function(err, doc){
+		if(err){
+			console.log(err);
+		} else {
+			res.send(doc._id);
+		}
+	});
+});
+
 
 //
 // app.delete('/api/saved/', function(req, res){
