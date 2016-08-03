@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 //
 var logger = require('morgan');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var Recipe = require('./models/user.js');
 
 var request = require('request');
@@ -22,7 +22,7 @@ db.on('error', function(err) {
 });
 
 var app = express();
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3000;
 
 
 app.use(logger('dev'));
@@ -119,37 +119,37 @@ app.get('/api/show', function(req, res){
     });
 });
 
-mongoose.connect('mongodb://localhost/testbigoven');
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/testbigoven');
+// var db = mongoose.connection;
 
-db.on('error', function (err) {
-	console.log('Mongoose Error: ', err);
-});
+// db.on('error', function (err) {
+// 	console.log('Mongoose Error: ', err);
+// });
 
-db.once('open', function () {
-	console.log('Mongoose connection successful.');
-});
+// db.once('open', function () {
+// 	console.log('Mongoose connection successful.');
+// });
 
-app.post('/api/bigoven', function(req, res){
-	var newRecipe = new Recipe(req.body);
+// app.post('/api/bigoven', function(req, res){
+// 	var newRecipe = new Recipe(req.body);
 
-	console.log(req.body)
+// 	console.log(req.body)
 
-	var title = req.body.title;
-	var ingredients = req.body.ingredients;
-	var instructions = req.body.instructions;
-	var rating = req.body.rating;
-	var date = req.body.date;
+// 	var title = req.body.title;
+// 	var ingredients = req.body.ingredients;
+// 	var instructions = req.body.instructions;
+// 	var rating = req.body.rating;
+// 	var date = req.body.date;
 
 
-	newRecipe.save(function(err, doc){
-		if(err){
-			console.log(err);
-		} else {
-			res.send(doc._id);
-		}
-	});
-});
+// 	newRecipe.save(function(err, doc){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			res.send(doc._id);
+// 		}
+// 	});
+// });
 
 
 //
