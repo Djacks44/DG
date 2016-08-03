@@ -22,7 +22,7 @@ db.on('error', function(err) {
 });
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 
 app.use(logger('dev'));
@@ -42,6 +42,19 @@ app.use(cookieParser());
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
+
+//switch from momgo js to moongoose
+// mongoose.connect('mongodb://localhost/nytreact');
+// var db = mongoose.connection;
+
+// db.on('error', function (err) {
+// 	console.log('Mongoose Error: ', err);
+// });
+
+// db.once('open', function () {
+// 	console.log('Mongoose connection successful.');
+// });
+
 var logic = require('./server/logic/logic')
 var users_controller = require('./controller/users_controller');
 app.use('/search',logic);
@@ -58,6 +71,25 @@ app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });
 
+
+
+
+//
+//
+// app.get('/api/saved', function(req, res) {
+//
+// 	Article.find({})
+// 		.exec(function(err, doc){
+//
+// 			if(err){
+// 				console.log(err);
+// 			}
+// 			else {
+// 				res.send(doc);
+// 			}
+// 		})
+// });
+//
 
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
@@ -89,7 +121,6 @@ app.post('/api/saved', function(req, res){
 
   			db.users.update({
 			    'name': name1,
-			  },
           "array._id": "Plan 1",
 			  },
 			  {
@@ -137,27 +168,6 @@ app.get('/api/show', function(req, res){
 // 		}
 // 	});
 // });
-      // var plans = [{
-      //   title: "Plan1",
-      //   planedRecipes: [
-      //     {Recipe:"name1",Description:"DX",ingredients:"Yummy"},
-      //     {Recipe:"name2",Description:"FX",ingredients:"Tummy"},
-      //     {Recipe:"name3",Description:"DZX",ingredients:"Lummy"}
-      //     ]
-      // },
-      // {
-      //   title: "Plan2",
-      //   planedRecipes: [
-      //     {Recipe:"name4",Description:"DX",ingredients:"Yummy"},
-      //     {Recipe:"name5",Description:"FX",ingredients:"Tummy"},
-      //     {Recipe:"name6",Description:"DZX",ingredients:"Lummy"}
-      //     ]
-      // }];
-
-      //   var addRecipetoMenu = plans.map(function(plans,index){
-      //     return(
-      //     <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
-      // )}.bind(this));
 
  //  db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
 
