@@ -154,6 +154,19 @@
   <script src="assets/js/app.js"></script>
   <script src="assets/js/wow.min.js"></script>
     <script>
+    $(document).ready(function() {
+          $("#register").hide();
+
+        $("#register_btn").click(function(){
+            $("#sign_in").hide();
+            $("#register").show();
+        });
+
+        $("#signIn_btn").click(function(){
+            $("#sign_in").show();
+            $("#register").hide();
+        });
+    });
       jQuery(document).foundation({
         equalizer: {
             equalize_on_stack: true

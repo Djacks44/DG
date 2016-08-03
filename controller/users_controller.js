@@ -22,8 +22,6 @@ db.on('error', function(err) {
 
 
 router.get('/userlogedin',function(req,res){
-	console.log("9999999999999999999999999999999");
-	console.log(req.session);
 	res.json(req.session)
 });
 
@@ -63,8 +61,6 @@ router.post('/register', function(req,res) {
 				res.send('we already have an email or username for this account');
 			}else{
 				bcrypt.genSalt(10, function(err, salt) {
-					// var name = req.body.firstname + ' ' + req.b
-					// var role = 'user';
 
 
 						bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -89,37 +85,11 @@ router.post('/register', function(req,res) {
 			      	console.log(found)
 			      	console.log('successfull')
 			      }
-			  }); 
-
-
-
-
-
-
-
+			  });
                 res.redirect('/')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             	});
-
 						});
 				});
-
 			}
 	});
 });

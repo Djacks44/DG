@@ -42,19 +42,6 @@ app.use(cookieParser());
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
-
-//switch from momgo js to moongoose
-// mongoose.connect('mongodb://localhost/nytreact');
-// var db = mongoose.connection;
-
-// db.on('error', function (err) {
-// 	console.log('Mongoose Error: ', err);
-// });
-
-// db.once('open', function () {
-// 	console.log('Mongoose connection successful.');
-// });
-
 var logic = require('./server/logic/logic')
 var users_controller = require('./controller/users_controller');
 app.use('/search',logic);
@@ -69,25 +56,6 @@ app.listen(PORT, function() {
 });
 
 
-
-
-//
-//
-// app.get('/api/saved', function(req, res) {
-//
-// 	Article.find({})
-// 		.exec(function(err, doc){
-//
-// 			if(err){
-// 				console.log(err);
-// 			}
-// 			else {
-// 				res.send(doc);
-// 			}
-// 		})
-// });
-//
-
 app.post('/api/saved', function(req, res){
 	console.log(req.body);
 	var recipe = req.body
@@ -96,7 +64,7 @@ app.post('/api/saved', function(req, res){
 
 
 
-		//needs to be in an if statment db needs to insert if a new plan is chosen 
+		//needs to be in an if statment db needs to insert if a new plan is chosen
 		//title needs to come trough the route with object so we can define it here
 
 	// var bog = {name: name1, title: "", res: []};
@@ -108,14 +76,14 @@ app.post('/api/saved', function(req, res){
 	// 		      	console.log(found)
 	// 		      	console.log('successfull')
 	// 		      }
-	// 		  }); 
+	// 		  });
 
 //right now this just updates the first plan
 //just put a variable for title to make it work
 
   			db.users.update({
 			    'name': name1,
-			  }, 
+			  },
 			  {
 			    $push: 		{
 			            'res': recipe,
@@ -182,4 +150,3 @@ app.get('/api/show', function(req, res){
       //     return(
       //     <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
       // )}.bind(this));
-
