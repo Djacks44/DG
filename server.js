@@ -50,6 +50,9 @@ app.use('/users', users_controller);
 app.get('/', function(req, res){
 	res.sendFile('./public/index.html');
 });
+app.get('/about', function(req, res){
+  res.sendFile(process.cwd()+'/public/views/contact.html');
+});
 
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
@@ -81,12 +84,20 @@ app.post('/api/saved', function(req, res){
 //right now this just updates the first plan
 //just put a variable for title to make it work
 
+ // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+
   			db.users.update({
 			    'name': name1,
+<<<<<<< HEAD
 			  },
+=======
+          "array._id": "Plan 1",
+			  }, 
+>>>>>>> origin
 			  {
 			    $push: 		{
-			            'res': recipe,
+			            "array.$.res": recipe,
 			    			}
 			  }, function(err, edited) {
 			    if (err) {
@@ -129,6 +140,7 @@ app.get('/api/show', function(req, res){
 // 		}
 // 	});
 // });
+<<<<<<< HEAD
       // var plans = [{
       //   title: "Plan1",
       //   planedRecipes: [
@@ -150,3 +162,12 @@ app.get('/api/show', function(req, res){
       //     return(
       //     <MenuItem onClick={this.save.bind(this,plans)}>{plans.title}</MenuItem>
       // )}.bind(this));
+=======
+   
+ //  db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
+
+ // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+ // db.users.update({ name: "djacks@udel.edu"},{ "$push": {array: {_id:"Plan Two", title:"Plan Two", res: []}}})
+
+>>>>>>> origin

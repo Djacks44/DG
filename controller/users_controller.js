@@ -76,7 +76,8 @@ router.post('/register', function(req,res) {
 
 
 
-              var bog = {name: req.body.email, title: "Plan1", res: []};
+              var bog = {name: req.body.email, array:[{_id: "Plan One", title:"Plan One", res: []}]};
+
 
               db.users.insert(bog, function(err, found) {
 			      if (err) {

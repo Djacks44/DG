@@ -27228,16 +27228,7 @@
 	                      null,
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '/MyRecipes' },
-	                        'My Recipes'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: 'views/blog.html' },
+	                        { href: '/about' },
 	                        'About Us'
 	                      )
 	                    ),
@@ -27338,16 +27329,7 @@
 	                      null,
 	                      _react2.default.createElement(
 	                        'a',
-	                        { href: '/MyRecipes' },
-	                        'My Recipes'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: 'views/blog.html' },
+	                        { href: '/about' },
 	                        'About Us'
 	                      )
 	                    ),
@@ -38107,14 +38089,23 @@
 	  }
 
 	  _createClass(Plans, [{
-	    key: 'handleClick',
-	    value: function handleClick(event) {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this2 = this;
 
 	      _axios2.default.get("/api/show").then(function (response) {
 	        return _this2.setState({ pool: response });
 	      });
-	      console.log(this.state.res);
+	      console.log('Component WILL MOUNT!');
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick(event) {
+	      var _this3 = this;
+
+	      _axios2.default.get("/api/show").then(function (response) {
+	        return _this3.setState({ pool: response });
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -38171,7 +38162,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: 'views/blog.html' },
+	                      { href: '/about' },
 	                      'About Us'
 	                    )
 	                  ),
@@ -38180,8 +38171,8 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: '/auth/google' },
-	                      'Sign In'
+	                      { href: '#' },
+	                      'Logged In'
 	                    )
 	                  )
 	                )
@@ -38274,37 +38265,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { id: 'bt', onClick: this.handleClick.bind(this) },
-	          'Show recipes'
-	        ),
-	        _react2.default.createElement(
-	          'section',
-	          { className: 'content-padding plan planOne' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'wow bounceInRight row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'large-12 medium-12 small-12 columns text-center' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'head align-center' },
-	                _react2.default.createElement(
-	                  'h2',
-	                  { className: 'margin0' },
-	                  'Plan One'
-	                )
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { id: 'foodplanner' },
-	            _react2.default.createElement(_showfood2.default, { pool: this.state.pool })
-	          )
-	        )
+	        _react2.default.createElement(_showfood2.default, { pool: this.state.pool })
 	      );
 	    }
 	  }]);
@@ -38353,60 +38314,110 @@
 	var Showfood = _react2.default.createClass({
 	  displayName: 'Showfood',
 	  getInitialState: function getInitialState() {
-	    console.log(this.props.pool);
-	    console.log('lol');
+
 	    return {
-	      selectedRecipe: this.props.pool
+	      pool: this.props.pool
 	    };
 	  },
+	  handleClick: function handleClick(event) {
+	    // axios.get("/api/show")
+	    //   .then(response => this.setState({pool:response}));
+	    //     console.log(this.state.res);
 
 
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, prevProps) {
-	    var _this = this;
+	    //     db.users.insert({name: "djacks@udel.edu", array:[{_id: "Plan One", title:"Plan One", res: []}]})
 
-	    console.log(prevProps, 'loooook');
-	    console.log(nextProps, 'hey');
-	    _axios2.default.get("/api/show").then(function (response) {
-	      return _this.setState({ plans: response });
-	    });
-	    console.log(this.state.plans);
+	    // db.users.update({ name: email, "array._id": ID},{ "$push": {"array.$.res": { "name": "test name", "duration": "4.00"}}})
+
+	    // db.users.update({ name: "djacks@udel.edu"},{ "$push": {array: {_id:"Plan Two", title:"Plan Two", res: []}}})
+
 	  },
-
-	  //   handleClick(event){
-	  //   event.preventDefault();
-	  //   console.log("here is the handleclick to axios for RID");
-
-	  //   axios.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-	  //        .then(response => this.setState({selectedRecipe:response}));
-	  //        console.log(this.state.selectedRecipe);
-
-	  //   this.setState({ showModal: true });
-
-	  // },
-
-
 	  render: function render() {
-	    console.log(this.props.pool);
-	    console.log(this.state.plans);
+	    // console.log(this.props.pool)
+	    // console.log(this.state.plans)
+
 
 	    if (this.props.pool == undefined) {
 
 	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'lol'
+	        'section',
+	        { className: 'content-padding plan planOne' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'wow bounceInRight row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'large-12 medium-12 small-12 columns text-center' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'head align-center' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'margin0' },
+	                'Plan One'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'foodplanner' },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Start Saving.....'
+	            )
+	          )
+	        )
 	      );
 	    } else {
-	      var red = this.props.pool.data[0].res.map(function (l, index) {
-	        console.log(l);
-	        console.log(index);
-	        return _react2.default.createElement('img', { id: 'sick', src: l.image, alt: '' });
+	      var listplan = this.props.pool.data[0].array.map(function (planz, index) {
+
+	        console.log(planz.res);
+
+	        var foods = planz.res.map(function (food, index) {
+	          return _react2.default.createElement('img', { id: 'sick', src: food.image, alt: '' });
+	        }.bind(this));
+
+	        return _react2.default.createElement(
+	          'section',
+	          { className: 'content-padding plan planOne' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'wow bounceInRight row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-12 medium-12 small-12 columns text-center' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'head align-center' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  { className: 'margin0' },
+	                  planz.title
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'foodplanner' },
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              foods
+	            )
+	          )
+	        );
 	      }.bind(this));
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        red
+	        listplan
 	      );
 	    }
 	  }
