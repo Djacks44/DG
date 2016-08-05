@@ -35,7 +35,7 @@ app.use(express.static('./public'));
 
 
 
-//allow sessions
+//allow session
 app.use(session({secret: 'app', cookie: { maxAge: 60000000000000000000000}}));
 app.use(cookieParser());
 
