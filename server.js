@@ -11,7 +11,7 @@ var Recipe = require('./models/user.js');
 
 var request = require('request');
 var mongojs = require('mongojs');
-var databaseUrl = 'mongodb://localhost/res';
+var databaseUrl = 'mongodb://heroku_1s58mqrh:dd2tj60b0ev8v1k914lasgslvr@ds145415.mlab.com:45415/heroku_1s58mqrh';
 var collections = ["users"];
 
 
