@@ -62,7 +62,7 @@ const Example = React.createClass({
     event.preventDefault();
     console.log("here is the handleclick to axios for RID");
 
-    axios.get("http://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+    axios.get("https://api2.bigoven.com/recipe/" + this.props.recipe.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
          .then(response => this.setState({selectedRecipe:response}));
          console.log(this.state.selectedRecipe);
 
