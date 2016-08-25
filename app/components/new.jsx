@@ -23,8 +23,9 @@ class SearchRecipe extends React.Component {
   handleClick(event){
     event.preventDefault();
    var x = this.refs.lol.value.trim();
-   axios.get("https://api2.bigoven.com/recipes?rpp=12&any_kw="+x+"&photos=true&api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
-     .then(response => this.setState({search: response.data.Results}))
+   axios.get("http://food2fork.com/api/search?key=2fc55b81d38f69fa79fa74a05a1718b0&q="+x)
+     .then(response => this.setState({search: response.recipes}))
+     console.log(this.state.search)
 
       //  function(response){
       //  var firstsearch = []
