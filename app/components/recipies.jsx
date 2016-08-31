@@ -19,7 +19,7 @@ class ShowRecipe extends React.Component {
 
    handleClick(obj, event){
     console.log(obj)
-    axios.get("https://api2.bigoven.com/recipe/" + obj.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K")
+    axios.get("https://crossorigin.me/http://food2fork.com/api/get?key=2fc55b81d38f69fa79fa74a05a1718b0&rId=" + obj.recipe_id)
     .then(response => this.setState({roy:response, reciped: obj}));
     console.log(this.state.roy)
   }
@@ -56,7 +56,7 @@ class ShowRecipe extends React.Component {
 
     }else{
       console.log(this.props.recipe == '')
-      console.log(this.props.children)
+      console.log(this.props.recipe)
       var recipe = this.props.recipe
 
       var recipes = this.props.recipe.map(function(recipe, index){
@@ -70,7 +70,7 @@ class ShowRecipe extends React.Component {
                 <a onClick={this.handleClick.bind(this, recipe)} className="like"><i className="fa fa-plus"></i> More info</a>
                 <a href="recipe.html" className="type">{recipe.Category}</a>
 
-                 <img src={recipe.PhotoUrl} alt="" />
+                 <img src={recipe.image_url} alt="" />
               </div>
               <h6 className="fontsans margin0"><a href="recipe.html">{recipe.Title}</a></h6>
             </div>

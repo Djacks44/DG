@@ -26811,10 +26811,9 @@
 
 	      event.preventDefault();
 	      var x = this.refs.lol.value.trim();
-	      _axios2.default.get("http://food2fork.com/api/search?key=2fc55b81d38f69fa79fa74a05a1718b0&q=" + x).then(function (response) {
-	        return _this3.setState({ search: response.recipes });
+	      _axios2.default.get("https://crossorigin.me/http://food2fork.com/api/search?key=2fc55b81d38f69fa79fa74a05a1718b0&count=8&q=" + x).then(function (response) {
+	        return _this3.setState({ search: response.data.recipes });
 	      });
-	      console.log(this.state.search);
 
 	      //  function(response){
 	      //  var firstsearch = []
@@ -28310,7 +28309,7 @@
 	      var _this2 = this;
 
 	      console.log(obj);
-	      _axios2.default.get("https://api2.bigoven.com/recipe/" + obj.RecipeID + "?api_key=3r23I5wV7rQo5zv899t13KaKjFpJW40K").then(function (response) {
+	      _axios2.default.get("https://crossorigin.me/http://food2fork.com/api/get?key=2fc55b81d38f69fa79fa74a05a1718b0&rId=" + obj.recipe_id).then(function (response) {
 	        return _this2.setState({ roy: response, reciped: obj });
 	      });
 	      console.log(this.state.roy);
@@ -28376,7 +28375,7 @@
 	        );
 	      } else {
 	        console.log(this.props.recipe == '');
-	        console.log(this.props.children);
+	        console.log(this.props.recipe);
 	        var recipe = this.props.recipe;
 
 	        var recipes = this.props.recipe.map(function (recipe, index) {
@@ -28404,7 +28403,7 @@
 	                    { href: 'recipe.html', className: 'type' },
 	                    recipe.Category
 	                  ),
-	                  _react2.default.createElement('img', { src: recipe.PhotoUrl, alt: '' })
+	                  _react2.default.createElement('img', { src: recipe.image_url, alt: '' })
 	                ),
 	                _react2.default.createElement(
 	                  'h6',
@@ -33716,9 +33715,9 @@
 	    console.log(obj);
 
 	    var pasObj = {
-	      image: obj.data.ImageURL,
-	      title: obj.data.Title,
-	      recipeid: obj.data.RecipeID
+	      image: obj.data.image_url,
+	      title: obj.data.title,
+	      recipeid: obj.data.recipe_id
 	    };
 
 	    //save here
@@ -33753,7 +33752,7 @@
 	          _react2.default.createElement(
 	            _Modal2.default.Title,
 	            null,
-	            this.state.selectedRecipe.data.Title
+	            this.state.selectedRecipe.data.title
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -33762,8 +33761,7 @@
 	          _react2.default.createElement(
 	            'h4',
 	            null,
-	            'Rating: ',
-	            Math.round(this.state.selectedRecipe.data.StarRating)
+	            'Rating:4'
 	          ),
 	          _react2.default.createElement(
 	            _DropdownButton2.default,
@@ -33778,23 +33776,12 @@
 	          _react2.default.createElement(
 	            'strong',
 	            null,
-	            'Description'
+	            'ingredients'
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            this.state.selectedRecipe.data.Description
-	          ),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Instructions'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.selectedRecipe.data.Instructions
+	            this.state.selectedRecipe.data.ingredients
 	          )
 	        ),
 	        _react2.default.createElement(
