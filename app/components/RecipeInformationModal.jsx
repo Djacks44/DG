@@ -40,9 +40,9 @@ const Example = React.createClass({
     
 
     var pasObj = {
-                  image:obj.data.image_url,
-                  title:obj.data.title,
-                  recipeid:obj.data.recipe_id
+                  image:obj.data.ImageURL,
+                  title:obj.data.Title,
+                  recipeid:obj.data.RecipeID
                  }
 
 
@@ -80,18 +80,21 @@ const Example = React.createClass({
         <Modal show={this.state.showModal} onHide={this.close}>
 
           <Modal.Header closeButton>
-            <Modal.Title>{this.state.selectedRecipe.data.title}</Modal.Title>
+            <Modal.Title>{this.state.selectedRecipe.data.Title}</Modal.Title>
 
             </Modal.Header>
 
             <Modal.Body>
-            <h4>Rating:4</h4>
+            <h4>Rating: {Math.round(this.state.selectedRecipe.data.StarRating)}</h4>
             <DropdownButton title="Save to Plan" id="bg-vertical-dropdown-3" >
             <MenuItem onClick={this.save.bind(this, this.state.selectedRecipe)} >  add to plan Plan </MenuItem>
             </DropdownButton>
             <br />
-            <strong>ingredients</strong>
-            <p>{ this.state.selectedRecipe.data.ingredients}</p>
+            <strong>Description</strong>
+            <p>{this.state.selectedRecipe.data.Description}</p>
+            <br />
+            <strong>Instructions</strong>
+            <p>{ this.state.selectedRecipe.data.Instructions}</p>
           </Modal.Body>
 
           <Modal.Footer>

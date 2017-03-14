@@ -23,8 +23,9 @@ class SearchRecipe extends React.Component {
   handleClick(event){
     event.preventDefault();
    var x = this.refs.lol.value.trim();
-   axios.get("https://crossorigin.me/http://food2fork.com/api/search?key=2fc55b81d38f69fa79fa74a05a1718b0&count=8&q="+x)
-     .then(response => this.setState({search: response.data.recipes}))
+   axios.get("http://food2fork.com/api/search?key=2fc55b81d38f69fa79fa74a05a1718b0&q="+x)
+     .then(response => this.setState({search: response.recipes}))
+     console.log(this.state.search)
 
       //  function(response){
       //  var firstsearch = []
